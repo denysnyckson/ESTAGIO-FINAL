@@ -63,7 +63,7 @@
 
           <li class="treeview active">
             <a href="#">
-              <i class="fa fa-edit"></i> <span>Bolsistas</span>
+              <i class="fa fa-user"></i> <span>Bolsistas</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -83,7 +83,7 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="#"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Nova Função</a></li>
+              <li><a href="funcao_cadastro.php"><i class="fa fa-circle-o"></i> Nova Função</a></li>
             </ul>
           </li>
 
@@ -133,9 +133,9 @@
                 <div class="row">    
                     <div class="form-group col-md-6">
                     <label for="exampleInputTel">Telefone</label>
-                    <input type="email" class="form-control" id="exampleInputTel" placeholder="(99)99999-9999">
+                    <input type="text" class="form-control" id="exampleInputTel" placeholder="(99) 99999-9999">
                     </div>
-                    
+            
                     <div class="form-group col-md-6">
                     <label>Turno</label>
                     <select class="form-control">
