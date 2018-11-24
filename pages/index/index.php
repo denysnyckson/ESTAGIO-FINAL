@@ -56,13 +56,13 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">NAVEGAÇÃO</li>
-          <li>
-            <a href="../index/index.php">
+          <li class="active">
+            <a href="index.php">
               <i class="fa fa-dashboard"></i> <span>Inicio</span>
             </a>
           </li>
 
-          <li class="treeview active">
+          <li class="treeview">
             <a href="#">
               <i class="fa fa-user"></i> <span>Bolsistas</span>
               <span class="pull-right-container">
@@ -71,7 +71,7 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="#"><i class="fa fa-circle-o"></i> Bolsistas Cadastrados</a></li>
-              <li class='active'><a href="#"><i class="fa fa-circle-o"></i> Novo Bolsista</a></li>
+              <li><a href="../forms/bolsista_cadastro.php"><i class="fa fa-circle-o"></i> Novo Bolsista</a></li>
             </ul>
           </li>
 
@@ -84,7 +84,7 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="#"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
-              <li><a href="funcao_cadastro.php"><i class="fa fa-circle-o"></i> Nova Função</a></li>
+              <li><a href="../forms/funcao_cadastro.php"><i class="fa fa-circle-o"></i> Nova Função</a></li>
             </ul>
           </li>
 
@@ -110,51 +110,40 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
-      <section class="content">
-      <div class="row">
-        <!-- left column -->
-        <div class="col-md-12">
-          <!-- general form elements -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Novo Bolsista</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Nome</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Digite o nome">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Email</label>
-                    <input type="email" class="form-control" id="exampleInputPassword1" placeholder="example@example.com">
-                </div>
-                <div class="row">    
-                    <div class="form-group col-md-6">
-                    <label for="exampleInputTel">Telefone</label>
-                    <input type="text" class="form-control" id="exampleInputTel" placeholder="(99) 99999-9999">
-                    </div>
-            
-                    <div class="form-group col-md-6">
-                    <label>Turno</label>
-                    <select class="form-control">
-                        <option>Manhã</option>
-                        <option>Tarde</option>
-                        <option>Noite</option>
-                    </select>
-                    </div>
-                </div>
-              </div>
-              <!-- /.box-body -->
+      <section class="content-header">
+        <h1>
+          Inicio </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        </ol>
+      </section>
 
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
-              </div>
-            </form>
+      <!-- Main content -->
+      <section class="content">
+        <!-- Default box -->
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">Title</h3>
+
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                <i class="fa fa-times"></i></button>
+            </div>
           </div>
-    
+          <div class="box-body">
+            Start creating your amazing application!
+          </div>
+          <!-- /.box-body -->
+          <div class="box-footer">
+            Footer
+          </div>
+          <!-- /.box-footer-->
+        </div>
+        <!-- /.box -->
+
+      </section>
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->

@@ -1,3 +1,4 @@
+<?php require_once '../../php/sessions/session_verifica.php'?>
 <!DOCTYPE html>
 <html>
 
@@ -56,7 +57,7 @@
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">NAVEGAÇÃO</li>
           <li>
-            <a href="../../index.php">
+            <a href="../index/index.php">
               <i class="fa fa-dashboard"></i> <span>Inicio</span>
             </a>
           </li>
