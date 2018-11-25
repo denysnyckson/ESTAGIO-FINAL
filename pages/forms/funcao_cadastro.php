@@ -94,11 +94,7 @@
             </a>
           </li>
 
-          <li>
-            <a href="#">
-              <i class="fa fa-sign-out"></i> <span>Sair</span>
-            </a>
-          </li>
+          <?php include '../templates/bt_sair.php'; ?>
 
         </ul>
       </section>

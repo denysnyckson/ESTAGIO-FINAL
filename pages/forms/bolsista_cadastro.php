@@ -94,11 +94,7 @@
             </a>
           </li>
 
-          <li>
-            <a href="#">
-              <i class="fa fa-sign-out"></i> <span>Sair</span>
-            </a>
-          </li>
+          <?php include '../templates/bt_sair.php'; ?>
 
         </ul>
       </section>
@@ -121,15 +117,15 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form role="form" method="post" action="../../php/control/cadastra_bolsista.php">
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nome</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Digite o nome">
+                  <input name="nome" type="text" class="form-control" id="exampleInputEmail1" placeholder="Digite o nome">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Email</label>
-                    <input type="email" class="form-control" id="exampleInputPassword1" placeholder="example@example.com">
+                    <input name="email" type="email" class="form-control" id="exampleInputPassword1" placeholder="example@example.com">
                 </div>
                 <div class="row">    
                     <div class="form-group col-md-6">
@@ -139,10 +135,10 @@
             
                     <div class="form-group col-md-6">
                     <label>Turno</label>
-                    <select class="form-control">
-                        <option>Manhã</option>
-                        <option>Tarde</option>
-                        <option>Noite</option>
+                    <select name="turno" class="form-control">
+                        <option value='M'>Manhã</option>
+                        <option value='T'>Tarde</option>
+                        <option value='N'>Noite</option>
                     </select>
                     </div>
                 </div>
