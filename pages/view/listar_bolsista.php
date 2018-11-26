@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -56,13 +59,13 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">NAVEGAÇÃO</li>
-          <li class="active">
-            <a href="index.php">
+          <li>
+            <a href="../../pages/index/index.php">
               <i class="fa fa-dashboard"></i> <span>Inicio</span>
             </a>
           </li>
 
-          <li class="treeview">
+          <li class="treeview active">
             <a href="#">
               <i class="fa fa-user"></i> <span>Bolsistas</span>
               <span class="pull-right-container">
@@ -70,8 +73,8 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="../../pages/view/listar_bolsista.php"><i class="fa fa-circle-o"></i> Bolsistas Cadastrados</a></li>
-              <li><a href="../forms/bolsista_cadastro.php"><i class="fa fa-circle-o"></i> Novo Bolsista</a></li>
+              <li class='active'><a href="#"><i class="fa fa-circle-o"></i> Bolsistas Cadastrados</a></li>
+              <li><a href="../../pages/forms/bolsista_cadastro.php"><i class="fa fa-circle-o"></i> Novo Bolsista</a></li>
             </ul>
           </li>
 
@@ -84,7 +87,7 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="#"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
-              <li><a href="../forms/funcao_cadastro.php"><i class="fa fa-circle-o"></i> Nova Função</a></li>
+              <li><a href="../../pages/forms/bolsista_cadastro.php"><i class="fa fa-circle-o"></i> Nova Função</a></li>
             </ul>
           </li>
 
@@ -106,15 +109,44 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
-      
+      <section class="content-header">
+      <h1>
+        Bolsistas Cadastrados
+      </h1>
+        </section>
 
-      <!-- Main content -->
       <section class="content">
-        <!-- Default box -->
-        <img style="margin-left:40%;margin-top:15%" src="../../img/logo_index.png">
-        <!-- /.box -->
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+          <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Bolsistas</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" method="post" action="../../php/control/cadastra_bolsista.php">
+              <div class="box-body">
+              <table id="example2   " class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Email</th>
+                  <th>Turno(s)</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <?php require_once '../../php/control/listar_bol.php' ?>
+                </tbody>
+                </table>
+            </div>
+              <!-- /.box-body -->
 
-      </section>
+              
+            </form>
+          </div>
+    
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -134,10 +166,53 @@
   <script src="../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
   <!-- FastClick -->
   <script src="../../bower_components/fastclick/lib/fastclick.js"></script>
+  <!-- Data Tables-->
+  
+<script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
   <!-- AdminLTE App -->
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
+
+  <script>
+  $(function () {
+    $('#example1').DataTable(
+        {
+            "sEmptyTable": "Nenhum registro encontrado",
+            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+            "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+            "sInfoPostFix": "",
+            "sInfoThousands": ".",
+            "sLengthMenu": "_MENU_ resultados por página",
+            "sLoadingRecords": "Carregando...",
+            "sProcessing": "Processando...",
+            "sZeroRecords": "Nenhum registro encontrado",
+            "sSearch": "Pesquisar",
+            "oPaginate": {
+                "sNext": "Próximo",
+                "sPrevious": "Anterior",
+                "sFirst": "Primeiro",
+                "sLast": "Último"
+            },
+            "oAria": {
+                "sSortAscending": ": Ordenar colunas de forma ascendente",
+                "sSortDescending": ": Ordenar colunas de forma descendente"
+            }
+        }
+    )
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : false,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
 
 </body>
 

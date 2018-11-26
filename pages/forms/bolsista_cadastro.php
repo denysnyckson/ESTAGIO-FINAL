@@ -70,7 +70,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-circle-o"></i> Bolsistas Cadastrados</a></li>
+              <li><a href="../../pages/view/listar_bolsista.php"><i class="fa fa-circle-o"></i> Bolsistas Cadastrados</a></li>
               <li class='active'><a href="#"><i class="fa fa-circle-o"></i> Novo Bolsista</a></li>
             </ul>
           </li>
