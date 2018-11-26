@@ -83,7 +83,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
+                <li><a href="../../pages/view/listar_funcoes.php"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
               <li class="active"><a href="pages/forms/funcao_cadastro.php"><i class="fa fa-circle-o"></i> Nova Função</a></li>
             </ul>
           </li>
@@ -117,20 +117,20 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form role="form" method="post" action="../../php/control/cadastra_funcao.php">
               <div class="box-body">
                 <div class="row">    
                     <div class="form-group col-md-6">
-                    <label for="exampleInputTel">Nome</label>
-                    <input type="text" class="form-control" id="exampleInputTel">
+                    <label for="nome">Nome</label>
+                    <input name="nome" id="text" type="text" class="form-control" id="nome">
                     </div>
             
                     <div class="form-group col-md-6">
                     <label for="qnt">Quantidade</label>
-                    <input id="numberr" type="text" class="form-control" id="qnt">
+                    <input name="qnt" id="number" type="text" class="form-control" id="qnt">
                     </div>
                 </div>
-              </div>
+              </div> 
               <!-- /.box-body -->
 
               <div class="box-footer">
