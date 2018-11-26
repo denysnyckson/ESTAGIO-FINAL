@@ -83,7 +83,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
+              <li><a href="../../pages/view/listar_funcoes.php"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
               <li><a href="funcao_cadastro.php"><i class="fa fa-circle-o"></i> Nova Função</a></li>
             </ul>
           </li>
