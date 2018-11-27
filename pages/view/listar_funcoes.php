@@ -65,7 +65,7 @@
             </a>
           </li>
 
-          <li class="treeview active">
+          <li class="treeview">
             <a href="#">
               <i class="fa fa-user"></i> <span>Bolsistas</span>
               <span class="pull-right-container">
@@ -73,12 +73,12 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class='active'><a href="../../pages/view/listar_bolsista.php"><i class="fa fa-circle-o"></i> Bolsistas Cadastrados</a></li>
+              <li><a href="../../pages/view/listar_bolsista.php"><i class="fa fa-circle-o"></i> Bolsistas Cadastrados</a></li>
               <li><a href="../../pages/forms/bolsista_cadastro.php"><i class="fa fa-circle-o"></i> Novo Bolsista</a></li>
             </ul>
           </li>
 
-          <li class="treeview">
+          <li class="treeview active">
             <a href="#">
               <i class="fa fa-edit"></i> <span>Função</span>
               <span class="pull-right-container">
@@ -86,7 +86,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
+              <li class='active'><a href="#"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
               <li><a href="../forms/funcao_cadastro.php"><i class="fa fa-circle-o"></i> Nova Função</a></li>
             </ul>
           </li>
