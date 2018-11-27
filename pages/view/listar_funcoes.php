@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -57,12 +60,12 @@
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">NAVEGAÇÃO</li>
           <li>
-            <a href="../index/index.php">
+            <a href="../../pages/index/index.php">
               <i class="fa fa-dashboard"></i> <span>Inicio</span>
             </a>
           </li>
 
-          <li class="treeview">
+          <li class="treeview active">
             <a href="#">
               <i class="fa fa-user"></i> <span>Bolsistas</span>
               <span class="pull-right-container">
@@ -70,12 +73,12 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="../../pages/view/listar_bolsista.php"><i class="fa fa-circle-o"></i> Bolsistas Cadastrados</a></li>
-              <li><a href="bolsista_cadastro.php"><i class="fa fa-circle-o"></i> Novo Bolsista</a></li>
+              <li class='active'><a href="../../pages/view/listar_bolsista.php"><i class="fa fa-circle-o"></i> Bolsistas Cadastrados</a></li>
+              <li><a href="../../pages/forms/bolsista_cadastro.php"><i class="fa fa-circle-o"></i> Novo Bolsista</a></li>
             </ul>
           </li>
 
-          <li class="treeview active">
+          <li class="treeview">
             <a href="#">
               <i class="fa fa-edit"></i> <span>Função</span>
               <span class="pull-right-container">
@@ -83,8 +86,8 @@
               </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="../../pages/view/listar_funcoes.php"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
-              <li class="active"><a href="pages/forms/funcao_cadastro.php"><i class="fa fa-circle-o"></i> Nova Função</a></li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
+              <li><a href="../forms/funcao_cadastro.php"><i class="fa fa-circle-o"></i> Nova Função</a></li>
             </ul>
           </li>
 
@@ -106,6 +109,12 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
+      <section class="content-header">
+      <h1>
+        Funções Cadastradas
+      </h1>
+        </section>
+
       <section class="content">
       <div class="row">
         <!-- left column -->
@@ -113,29 +122,27 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Nova Função</h3>
+              <h3 class="box-title">Funções</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="post" action="../../php/control/cadastra_funcao.php">
+            <form role="form" method="post" action="../../php/control/cadastra_bolsista.php">
               <div class="box-body">
-                <div class="row">    
-                    <div class="form-group col-md-6">
-                    <label for="nome">Nome</label>
-                    <input name="nome" id="text" type="text" class="form-control" id="nome">
-                    </div>
-            
-                    <div class="form-group col-md-6">
-                    <label for="qnt">Quantidade</label>
-                    <input name="qnt" id="number" type="text" class="form-control" id="qnt">
-                    </div>
-                </div>
-              </div> 
+              <table id="example2   " class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Quantidade</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <?php require_once '../../php/control/listar_fun.php' ?>
+                </tbody>
+                </table>
+            </div>
               <!-- /.box-body -->
 
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
-              </div>
+              
             </form>
           </div>
     
@@ -158,35 +165,54 @@
   <script src="../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
   <!-- FastClick -->
   <script src="../../bower_components/fastclick/lib/fastclick.js"></script>
+  <!-- Data Tables-->
+  
+<script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
   <!-- AdminLTE App -->
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
 
   <script>
-    $(document).ready(function() {
-    $("#numberr").keydown(function (e) {
-        // Allow: backspace, delete, tab, escape, enter and .
-        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
-             // Allow: Ctrl/cmd+A
-            (e.keyCode == 65 && (e.ctrlKey === true || e.metaKey === true)) ||
-             // Allow: Ctrl/cmd+C
-            (e.keyCode == 67 && (e.ctrlKey === true || e.metaKey === true)) ||
-             // Allow: Ctrl/cmd+X
-            (e.keyCode == 88 && (e.ctrlKey === true || e.metaKey === true)) ||
-             // Allow: home, end, left, right
-            (e.keyCode >= 35 && e.keyCode <= 39)) {
-                 // let it happen, don't do anything
-                 return;
+  $(function () {
+    $('#example1').DataTable(
+        {
+            "sEmptyTable": "Nenhum registro encontrado",
+            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+            "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+            "sInfoPostFix": "",
+            "sInfoThousands": ".",
+            "sLengthMenu": "_MENU_ resultados por página",
+            "sLoadingRecords": "Carregando...",
+            "sProcessing": "Processando...",
+            "sZeroRecords": "Nenhum registro encontrado",
+            "sSearch": "Pesquisar",
+            "oPaginate": {
+                "sNext": "Próximo",
+                "sPrevious": "Anterior",
+                "sFirst": "Primeiro",
+                "sLast": "Último"
+            },
+            "oAria": {
+                "sSortAscending": ": Ordenar colunas de forma ascendente",
+                "sSortDescending": ": Ordenar colunas de forma descendente"
+            }
         }
-        // Ensure that it is a number and stop the keypress
-        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-            e.preventDefault();
-        }
-    });
-});
-  </script>
+    )
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : false,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
 
 </body>
 
-</html> 
+</html>
