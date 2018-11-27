@@ -1,6 +1,5 @@
 <?php
     require_once '../../php/bancodedados/connect.class.php';
-    require_once '../../php/class/tablerow.class.php';
 
     class Bolsista{
 
@@ -16,11 +15,17 @@
             $stmt->execute();
         }
         public function listar(){
-            $stmt = $this->conn->prepare("SELECT nome,email,horario FROM bolsistas");
+            $stmt = $this->conn->query("SELECT * FROM bolsistas");
             $stmt->execute();
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-            foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v){
-                echo $v;
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+            foreach($result as $value){
+                echo '
+                    <tr>
+                        <td>'.$value['nome'].'</td>
+                        <td>'.$value['email'].'</td>
+                        <td>'.$value['horario'].'</td>
+                    </tr>
+                ';
             }
         }
     }
