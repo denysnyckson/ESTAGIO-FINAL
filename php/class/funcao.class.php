@@ -1,6 +1,5 @@
 <?php
     require_once '../../php/bancodedados/connect.class.php';
-    require_once '../../php/class/tablerow.class.php';
 
     class Funcao{
 
@@ -18,9 +17,14 @@
         public function listar(){
             $stmt = $this->conn->prepare("SELECT nome,qnt FROM funcoes");
             $stmt->execute();
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-            foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v){
-                echo $v;
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+            foreach($result as $values){
+                echo '
+                    <tr>
+                        <td>'.$values['nome'].'</td>
+                        <td>'.$values['qnt'].'</td>
+                    </tr>
+                ';
             }
         }
     }
