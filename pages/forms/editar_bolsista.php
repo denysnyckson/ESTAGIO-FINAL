@@ -14,9 +14,6 @@
   <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -60,7 +57,7 @@
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">NAVEGAÇÃO</li>
           <li>
-            <a href="../../pages/index/index.php">
+            <a href="../index/index.php">
               <i class="fa fa-dashboard"></i> <span>Inicio</span>
             </a>
           </li>
@@ -73,8 +70,8 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class='active'><a href="../../pages/view/listar_bolsista.php"><i class="fa fa-circle-o"></i> Bolsistas Cadastrados</a></li>
-              <li><a href="../../pages/forms/bolsista_cadastro.php"><i class="fa fa-circle-o"></i> Novo Bolsista</a></li>
+              <li><a href="../../pages/view/listar_bolsista.php"><i class="fa fa-circle-o"></i> Bolsistas Cadastrados</a></li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Novo Bolsista</a></li>
             </ul>
           </li>
 
@@ -87,7 +84,7 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="../../pages/view/listar_funcoes.php"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
-              <li><a href="../../pages/forms/bolsista_cadastro.php"><i class="fa fa-circle-o"></i> Nova Função</a></li>
+              <li><a href="funcao_cadastro.php"><i class="fa fa-circle-o"></i> Nova Função</a></li>
             </ul>
           </li>
 
@@ -109,12 +106,6 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
-      <section class="content-header">
-      <h1>
-        Bolsistas Cadastrados
-      </h1>
-        </section>
-
       <section class="content">
       <div class="row">
         <!-- left column -->
@@ -122,32 +113,45 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Bolsistas</h3>
+              <h3 class="box-title">Editar Bolsista</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="post" action="../../php/control/cadastra_bolsista.php">
+            <form role="form" method="post" action="../../php/control/editar_bol.php">
+            <?php include '../../php/control/setdados.php'; ?>
               <div class="box-body">
-              <table id="example1" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>Email</th>
-                  <th>Turno(s)</th>
-                  <th>Ação</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <?php require_once '../../php/control/listar_bol.php' ?>
-                </tbody>
-                </table>
-            </div>
+                <div class="form-group">
+                  <label for="ipNome">Nome</label>
+                  <input name="nome" type="text" class="form-control" id="ipNome" placeholder="Digite o nome">
+                </div>
+                <div class="form-group">
+                    <label for="ipEmail">Email</label>
+                    <input name="email" type="email" class="form-control" id="ipEmail" placeholder="example@example.com">
+                </div>
+                <div class="row">    
+                    <div class="form-group col-md-6">
+                    <label for="exampleInputTel">Telefone</label>
+                    <input type="text" class="form-control" id="exampleInputTel" placeholder="(99) 99999-9999">
+                    </div>
+            
+                    <div class="form-group col-md-6">
+                    <label>Turno</label>
+                    <select id="ipTurno" name="turno" class="form-control">
+                        <option value='M'>Manhã</option>
+                        <option value='T'>Tarde</option>
+                        <option value='N'>Noite</option>
+                    </select>
+                    </div>
+                </div>
+              </div>
               <!-- /.box-body -->
 
-              
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Editar</button>
+              </div>
             </form>
           </div>
-    
+
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -158,8 +162,8 @@
 
   </div>
   <!-- ./wrapper -->
-
-  <!-- jQuery 3 -->
+ 
+  <!-- jQuery 3 --> 
   <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
   <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -167,50 +171,20 @@
   <script src="../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
   <!-- FastClick -->
   <script src="../../bower_components/fastclick/lib/fastclick.js"></script>
-  <!-- Data Tables-->
-  
-<script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-
   <!-- AdminLTE App -->
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
 
   <script>
-  $(function () {
-    $('#example1').DataTable(
-        {
-          "bJQueryUI": true,
-                "oLanguage": {
-                    "sProcessing":   "Processando...",
-                    "sLengthMenu":   "Mostrar _MENU_ registros",
-                    "sZeroRecords":  "Não foram encontrados resultados",
-                    "sInfo":         "Mostrando de _START_ até _END_ de _TOTAL_ registros",
-                    "sInfoEmpty":    "Mostrando de 0 até 0 de 0 registros",
-                    "sInfoFiltered": "",
-                    "sInfoPostFix":  "",
-                    "sSearch":       "Buscar:",
-                    "sUrl":          "",
-                    "oPaginate": {
-                        "sFirst":    "Primeiro",
-                        "sPrevious": "Anterior",
-                        "sNext":     "Seguinte",
-                        "sLast":     "Último"
-                    }
-                },
-                'ordering' : false,
-                'lengthChange': false
-                
-        }
-    )
-  })
-</script>
-<script>
-    function editar(id){
-      window.location.replace("../../pages/forms/editar_bolsista.php?id="+id);
-    }
-</script>
+      var nome = document.getElementById('edNome').value;
+      var email = document.getElementById('edEmail').value;
+      var turno = document.getElementById('edTurno').value;
+      document.getElementById('ipNome').value = nome;
+      document.getElementById('ipEmail').value = email;
+      document.getElementById('ipTurno').value = turno;
+  </script>
+
 </body>
 
 </html>
