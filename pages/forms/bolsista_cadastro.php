@@ -142,7 +142,7 @@
                 <div class="row">    
                     <div class="form-group col-md-6">
                     <label for="exampleInputTel">Telefone</label>
-                    <input type="text" class="form-control" id="exampleInputTel" placeholder="(99) 99999-9999">
+                    <input name="telefone" type="text" class="form-control" id="exampleInputTel" placeholder="(99) 99999-9999">
                     </div>
             
                     <div class="form-group col-md-6">

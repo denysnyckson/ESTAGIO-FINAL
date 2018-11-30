@@ -143,7 +143,7 @@
                 <div class="row">    
                     <div class="form-group col-md-6">
                     <label for="exampleInputTel">Telefone</label>
-                    <input type="text" class="form-control" id="exampleInputTel" placeholder="(99) 99999-9999">
+                    <input name="telefone" id="ipTelefone" type="text" class="form-control" id="exampleInputTel" placeholder="(99) 99999-9999">
                     </div>
             
                     <div class="form-group col-md-6">
@@ -192,9 +192,11 @@
       var nome = document.getElementById('edNome').value;
       var email = document.getElementById('edEmail').value;
       var turno = document.getElementById('edTurno').value;
+      var telefone = document.getElementById('edTelefone').value;
       document.getElementById('ipNome').value = nome;
       document.getElementById('ipEmail').value = email;
       document.getElementById('ipTurno').value = turno;
+      document.getElementById('ipTelefone').value = telefone;
   </script>
 
 </body>

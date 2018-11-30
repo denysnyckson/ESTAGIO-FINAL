@@ -10,8 +10,8 @@
             $this->instance = ConnectDb::getInstance();
             $this->conn = $this->instance->getConnection();
         }
-        public function cadastrar($nome,$turno,$email){
-            $stmt = $this->conn->prepare("INSERT INTO bolsistas(nome,horario,email) VALUES ('$nome','$turno','$email')");
+        public function cadastrar($nome,$turno,$email,$telefone){
+            $stmt = $this->conn->prepare("INSERT INTO bolsistas(nome,horario,email,telefone) VALUES ('$nome','$turno','$email','$telefone')");
             $stmt->execute();
         }
         public function listar(){
@@ -26,6 +26,7 @@
                         <td>'.$value['horario'].'</td>
                         <td>
                             <input class="btn btn-primary" type="button" onclick=editar('.$value['id'].') value="Editar">
+                            <input class="btn btn-danger" type="button" data-toggle="modal" data-target="#modal-default" value="Deletar">
                         </td>
                     </tr>
                 ';
@@ -41,16 +42,43 @@
                     <input type="hidden" id="edNome" value='.$value['nome'].'>
                     <input type="hidden" id="edEmail" value='.$value['email'].'>
                     <input type="hidden" id="edTurno" value='.$value['horario'].'>
+                    <input type="hidden" id="edTelefone" value="'.$value['telefone'].'">
                 ';
             }
         }
-        public function editar($id,$nome,$email,$turno){
+        public function editar($id,$nome,$email,$turno,$telefone){
             $int = intval($id);
-            $sql = "UPDATE bolsistas SET nome = '$nome', email ='$email',horario = '$turno' WHERE id = $int";
+            $sql = "UPDATE bolsistas SET nome = '$nome', email ='$email',horario = '$turno',telefone = '$telefone' WHERE id = $int";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             //var_dump($int);
         }
-    }
 
+        public function getNumBolsista($horario){
+            if($horario=="ALL"){
+                $stmt = $this->conn->query("SELECT * FROM bolsistas");
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return count($result);
+            }elseif($horario=="M"){
+                $stmt = $this->conn->query("SELECT * FROM bolsistas WHERE horario = 'M'");
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return count($result);
+            }
+            elseif($horario=="T"){
+                $stmt = $this->conn->query("SELECT * FROM bolsistas WHERE horario = 'T'");
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return count($result);
+            }elseif($horario=="N"){
+                $stmt = $this->conn->query("SELECT * FROM bolsistas WHERE horario = 'N'");
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return count($result);
+            }else{
+                return 0;
+            }
+        }
+    }
 ?>

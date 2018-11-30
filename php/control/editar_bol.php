@@ -4,7 +4,8 @@
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $turno = $_POST['turno'];
+    $telefone = $_POST['telefone'];
     $bol = new Bolsista();
-    $bol->editar($id,$nome,$email,$turno);
+    $bol->editar($id,$nome,$email,$turno,$telefone);
     header("Location: ../../pages/view/listar_bolsista.php");
 ?>
