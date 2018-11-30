@@ -25,7 +25,7 @@
                         <td>'.$value['email'].'</td>
                         <td>'.$value['horario'].'</td>
                         <td>
-                            <input type="button" onclick=editar('.$value['id'].') value="Editar";
+                            <input class="btn btn-primary" type="button" onclick=editar('.$value['id'].') value="Editar">
                         </td>
                     </tr>
                 ';

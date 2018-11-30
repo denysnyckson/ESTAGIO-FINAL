@@ -88,9 +88,21 @@
             </ul>
           </li>
 
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-list"></i> <span>Escala</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="../../pages/view/listar_funcoes.php"><i class="fa fa-circle-o"></i> Escalas Cadastradas</a></li>
+              <li><a href="../forms/funcao_cadastro.php"><i class="fa fa-circle-o"></i> Nova Escala</a></li>
+            </ul>
+          </li>
           <li>
             <a href="#">
-              <i class="fa fa-edit"></i> <span>Escala</span>
+              <i class="fa fa-cog"></i> <span>Configuração</span>
             </a>
           </li>
 
