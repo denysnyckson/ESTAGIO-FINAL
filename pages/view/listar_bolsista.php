@@ -174,6 +174,7 @@
               
             </form>
           </div>
+          <input type="hidden" id="define" value="null">
           <div class="modal fade" id="modal-default">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -187,7 +188,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Fechar</button>
-                  <button type="button" class="btn btn-danger">Deletar</button>
+                  <button onclick=deletar() type="button" class="btn btn-danger fechar">Deletar</button>
                 </div>
               </div>
               <!-- /.modal-content -->
@@ -258,6 +259,19 @@
     function editar(id){
       window.location.replace("../../pages/forms/editar_bolsista.php?id="+id);
     }
+    function deletar(){
+      var id = document.getElementById('define').value;
+      window.location.replace("../../php/control/deletar_bol.php?id="+id);
+    }
+    function define_del(id){
+      document.getElementById('define').value = id;
+    }
+    function fon(id){
+      alert("fon");
+    }
+    $('.fechar').on('click', function(){
+      $('.modal').modal('hide'); 
+    });
 </script>
 </body>
 

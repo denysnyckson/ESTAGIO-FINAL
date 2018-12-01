@@ -26,7 +26,7 @@
                         <td>'.$value['horario'].'</td>
                         <td>
                             <input class="btn btn-primary" type="button" onclick=editar('.$value['id'].') value="Editar">
-                            <input class="btn btn-danger" type="button" data-toggle="modal" data-target="#modal-default" value="Deletar">
+                            <input onclick=define_del('.$value['id'].') class="btn btn-danger" type="button" data-toggle="modal" data-target="#modal-default" value="Deletar">
                         </td>
                     </tr>
                 ';
@@ -52,6 +52,12 @@
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             //var_dump($int);
+        }
+
+        public function delete($id){
+            $int = intval($id);
+            $sql = "DELETE FROM bolsistas WHERE id = $int";
+            $this->conn->exec($sql);
         }
 
         public function getNumBolsista($horario){
