@@ -19,17 +19,32 @@
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC); 
             foreach($result as $value){
+                $hor = $value['horario'];
                 echo '
                     <tr>
                         <td>'.$value['nome'].'</td>
                         <td>'.$value['email'].'</td>
-                        <td>'.$value['horario'].'</td>
+                        <td>'.$this->converte($hor).'</td>
                         <td>
                             <input class="btn btn-primary" type="button" onclick=editar('.$value['id'].') value="Editar">
                             <input onclick=define_del('.$value['id'].') class="btn btn-danger" type="button" data-toggle="modal" data-target="#modal-default" value="Deletar">
                         </td>
                     </tr>
                 ';
+            }
+        }
+        private function converte($horario){
+            if($horario=="ALL"){
+                return "Manhã";
+            }elseif($horario=="M"){
+                return "Manhã";
+            }
+            elseif($horario=="T"){
+                return "Tarde";
+            }elseif($horario=="N"){
+                return "Noite";
+            }else{
+                return 0;
             }
         }
         public function setDados($id){
