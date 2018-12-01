@@ -1,0 +1,112 @@
+echo '
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+            text-align: left;    
+        }
+    </style>
+
+
+        <table style="text-align:center">
+        <tr>
+            <td colspan="6" style="text-align:center">Manha</td>
+        </tr>
+        <tr>
+        <th>Bolsista</th>
+        <th>Segunda</th> 
+        <th>Terça</th>
+        <th>Quarta</th>
+        <th>Quinta</th>
+        <th>Sexta</th>
+        </tr>
+        <tr>
+        <td>'.$esc->name($arr["segunda"]["manha"][0][0]).'</td>
+        <td>'.$arr["segunda"]["manha"][0][1].'</td>
+        <td>'.$arr["terça"]["manha"][0][1].'</td>
+        <td>'.$arr["quarta"]["manha"][0][1].'</td>
+        <td>'.$arr["quinta"]["manha"][0][1].'</td>
+        <td>'.$arr["sexta"]["manha"][0][1].'</td>
+        </tr>
+        <tr>
+        <td>'.$esc->name($arr["segunda"]["manha"][1][0]).'</td>
+        <td>'.$arr["segunda"]["manha"][1][1].'</td>
+        <td>'.$arr["terça"]["manha"][1][1].'</td>
+        <td>'.$arr["quarta"]["manha"][1][1].'</td>
+        <td>'.$arr["quinta"]["manha"][1][1].'</td>
+        <td>'.$arr["sexta"]["manha"][1][1].'</td>
+        </tr>
+        <tr>
+        <td>'.$esc->name($arr["segunda"]["manha"][2][0]).'</td>
+        <td>'.$arr["segunda"]["manha"][2][1].'</td>
+        <td>'.$arr["terça"]["manha"][2][1].'</td>
+        <td>'.$arr["quarta"]["manha"][2][1].'</td>
+        <td>'.$arr["quinta"]["manha"][2][1].'</td>
+        <td>'.$arr["sexta"]["manha"][2][1].'</td>
+        </tr>
+        <tr>
+            <td colspan="6" style="text-align:center">Tarde</td>
+        </tr>
+        <td>'.$esc->name($arr["segunda"]["tarde"][0][0]).'</td>
+        <td>'.$arr["segunda"]["tarde"][0][1].'</td>
+        <td>'.$arr["terça"]["tarde"][0][1].'</td>
+        <td>'.$arr["quarta"]["tarde"][0][1].'</td>
+        <td>'.$arr["quinta"]["tarde"][0][1].'</td>
+        <td>'.$arr["sexta"]["tarde"][0][1].'</td>
+        </tr>
+        <tr>
+        <td>'.$esc->name($arr["segunda"]["tarde"][1][0]).'</td>
+        <td>'.$arr["segunda"]["tarde"][1][1].'</td>
+        <td>'.$arr["terça"]["tarde"][1][1].'</td>
+        <td>'.$arr["quarta"]["tarde"][1][1].'</td>
+        <td>'.$arr["quinta"]["tarde"][1][1].'</td>
+        <td>'.$arr["sexta"]["tarde"][1][1].'</td>
+        </tr>
+        <tr>
+        <td>'.$esc->name($arr["segunda"]["tarde"][2][0]).'</td>
+        <td>'.$arr["segunda"]["tarde"][2][1].'</td>
+        <td>'.$arr["terça"]["tarde"][2][1].'</td>
+        <td>'.$arr["quarta"]["tarde"][2][1].'</td>
+        <td>'.$arr["quinta"]["tarde"][2][1].'</td>
+        <td>'.$arr["sexta"]["tarde"][2][1].'</td>
+        </tr>
+        <tr>
+            <td colspan="6" style="text-align:center">Noite</td>
+        </tr>
+        <td>'.$esc->name($arr["segunda"]["noite"][0][0]).'</td>
+        <td>'.$arr["segunda"]["noite"][0][1].'</td>
+        <td>'.$arr["terça"]["noite"][0][1].'</td>
+        <td>'.$arr["quarta"]["noite"][0][1].'</td>
+        <td>'.$arr["quinta"]["noite"][0][1].'</td>
+        <td>'.$arr["sexta"]["noite"][0][1].'</td>
+        </tr>
+        <tr>
+        <td>'.$esc->name($arr["segunda"]["noite"][1][0]).'</td>
+        <td>'.$arr["segunda"]["noite"][1][1].'</td>
+        <td>'.$arr["terça"]["noite"][1][1].'</td>
+        <td>'.$arr["quarta"]["noite"][1][1].'</td>
+        <td>'.$arr["quinta"]["noite"][1][1].'</td>
+        <td>'.$arr["sexta"]["noite"][1][1].'</td>
+        </tr>
+        <tr>
+        <td>'.$esc->name($arr["segunda"]["noite"][2][0]).'</td>
+        <td>'.$arr["segunda"]["noite"][2][1].'</td>
+        <td>'.$arr["terça"]["noite"][2][1].'</td>
+        <td>'.$arr["quarta"]["noite"][2][1].'</td>
+        <td>'.$arr["quinta"]["noite"][2][1].'</td>
+        <td>'.$arr["sexta"]["noite"][2][1].'</td>
+        </tr>
+        <tr>
+        <td>'.$esc->name($arr["segunda"]["noite"][3][0]).'</td>
+        <td>'.$arr["segunda"]["noite"][3][1].'</td>
+        <td>'.$arr["terça"]["noite"][3][1].'</td>
+        <td>'.$arr["quarta"]["noite"][3][1].'</td>
+        <td>'.$arr["quinta"]["noite"][3][1].'</td>
+        <td>'.$arr["sexta"]["noite"][3][1].'</td>
+        </tr>
+        </table>
+        
+        ';

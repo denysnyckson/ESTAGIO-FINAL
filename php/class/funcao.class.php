@@ -27,6 +27,12 @@
                 ';
             }
         }
+        public function getNumFuncoes(){
+            $stmt = $this->conn->query("SELECT * FROM funcoes");
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return count($result);
+        }
     }
 
 ?>
