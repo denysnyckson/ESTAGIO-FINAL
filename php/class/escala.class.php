@@ -124,11 +124,25 @@
             }
             return $nome;
         }
+        public function exibir($numBol,$arr,$turno){
+            for($x = 0;$x<$numBol; $x++){
+                echo '
+                    <tr>
+                        <td><b>'.$this->name($arr["segunda"][$turno][$x][0]).'</b></td>
+                        <td>'.$arr["segunda"][$turno][$x][1].'</td>
+                        <td>'.$arr["terça"][$turno][$x][1].'</td>
+                        <td>'.$arr["quarta"][$turno][$x][1].'</td>
+                        <td>'.$arr["quinta"][$turno][$x][1].'</td>
+                        <td>'.$arr["sexta"][$turno][$x][1].'</td>
+                    </tr>    
+                ';
+            }
+        }
         public function gerou(){
             $arr = $this->gerarEscala();
             echo '
                 <table class="table table-bordered table-hover">
-                <tr>
+                <tr class = "success">
                     <td colspan="6" style="text-align:center"><b>Manha</b></td>
                 </tr>
                 <thead>
@@ -141,95 +155,15 @@
                 <th>Sexta</th>
                 <thead>
                 <tbody>
-                </tr>
-                <tr>
-                <td><b>'.$this->name($arr["segunda"]["manha"][0][0]).'</b></td>
-                <td>'.$arr["segunda"]["manha"][0][1].'</td>
-                <td>'.$arr["terça"]["manha"][0][1].'</td>
-                <td>'.$arr["quarta"]["manha"][0][1].'</td>
-                <td>'.$arr["quinta"]["manha"][0][1].'</td>
-                <td>'.$arr["sexta"]["manha"][0][1].'</td>
-                </tr>
-                <tr>
-                <td><b>'.$this->name($arr["segunda"]["manha"][1][0]).'</b></td>
-                <td>'.$arr["segunda"]["manha"][1][1].'</td>
-                <td>'.$arr["terça"]["manha"][1][1].'</td>
-                <td>'.$arr["quarta"]["manha"][1][1].'</td>
-                <td>'.$arr["quinta"]["manha"][1][1].'</td>
-                <td>'.$arr["sexta"]["manha"][1][1].'</td>
-                </tr>
-                <tr>
-                <td><b>'.$this->name($arr["segunda"]["manha"][2][0]).'</b></td>
-                <td>'.$arr["segunda"]["manha"][2][1].'</td>
-                <td>'.$arr["terça"]["manha"][2][1].'</td>
-                <td>'.$arr["quarta"]["manha"][2][1].'</td>
-                <td>'.$arr["quinta"]["manha"][2][1].'</td>
-                <td>'.$arr["sexta"]["manha"][2][1].'</td>
-                </tr>
-                <tr>
-                    <td colspan="6" style="text-align:center"><b>Tarde</b></td>
-                </tr>
-                <td><b>'.$this->name($arr["segunda"]["tarde"][0][0]).'</b></td>
-                <td>'.$arr["segunda"]["tarde"][0][1].'</td>
-                <td>'.$arr["terça"]["tarde"][0][1].'</td>
-                <td>'.$arr["quarta"]["tarde"][0][1].'</td>
-                <td>'.$arr["quinta"]["tarde"][0][1].'</td>
-                <td>'.$arr["sexta"]["tarde"][0][1].'</td>
-                </tr>
-                <tr>
-                <td><b>'.$this->name($arr["segunda"]["tarde"][1][0]).'</b></td>
-                <td>'.$arr["segunda"]["tarde"][1][1].'</td>
-                <td>'.$arr["terça"]["tarde"][1][1].'</td>
-                <td>'.$arr["quarta"]["tarde"][1][1].'</td>
-                <td>'.$arr["quinta"]["tarde"][1][1].'</td>
-                <td>'.$arr["sexta"]["tarde"][1][1].'</td>
-                </tr>
-                <tr>
-                <td><b>'.$this->name($arr["segunda"]["tarde"][2][0]).'</td>
-                <td>'.$arr["segunda"]["tarde"][2][1].'</td>
-                <td>'.$arr["terça"]["tarde"][2][1].'</td>
-                <td>'.$arr["quarta"]["tarde"][2][1].'</td>
-                <td>'.$arr["quinta"]["tarde"][2][1].'</td>
-                <td>'.$arr["sexta"]["tarde"][2][1].'</td>
-                </tr>
-                <tr>
-                    <td colspan="6" style="text-align:center"><b>Noite</b></td>
-                </tr>
-                <td><b>'.$this->name($arr["segunda"]["noite"][0][0]).'</b></td>
-                <td>'.$arr["segunda"]["noite"][0][1].'</td>
-                <td>'.$arr["terça"]["noite"][0][1].'</td>
-                <td>'.$arr["quarta"]["noite"][0][1].'</td>
-                <td>'.$arr["quinta"]["noite"][0][1].'</td>
-                <td>'.$arr["sexta"]["noite"][0][1].'</td>
-                </tr>
-                <tr>
-                <td><b>'.$this->name($arr["segunda"]["noite"][1][0]).'</b></td>
-                <td>'.$arr["segunda"]["noite"][1][1].'</td>
-                <td>'.$arr["terça"]["noite"][1][1].'</td>
-                <td>'.$arr["quarta"]["noite"][1][1].'</td>
-                <td>'.$arr["quinta"]["noite"][1][1].'</td>
-                <td>'.$arr["sexta"]["noite"][1][1].'</td>
-                </tr>
-                <tr>
-                <td><b>'.$this->name($arr["segunda"]["noite"][2][0]).'</b></td>
-                <td>'.$arr["segunda"]["noite"][2][1].'</td>
-                <td>'.$arr["terça"]["noite"][2][1].'</td>
-                <td>'.$arr["quarta"]["noite"][2][1].'</td>
-                <td>'.$arr["quinta"]["noite"][2][1].'</td>
-                <td>'.$arr["sexta"]["noite"][2][1].'</td>
-                </tr>
-                <tr>
-                <td><b>'.$this->name($arr["segunda"]["noite"][3][0]).'</b></td>
-                <td>'.$arr["segunda"]["noite"][3][1].'</td>
-                <td>'.$arr["terça"]["noite"][3][1].'</td>
-                <td>'.$arr["quarta"]["noite"][3][1].'</td>
-                <td>'.$arr["quinta"]["noite"][3][1].'</td>
-                <td>'.$arr["sexta"]["noite"][3][1].'</td>
-                </tr>
+                </tr>';
+            $this->exibir($this->bolsista->getNumBolsista('M'),$arr,"manha");
+            echo '<tr class = "info"><td colspan="6" style="text-align:center"><b>Tarde</b></td></tr>';
+            $this->exibir($this->bolsista->getNumBolsista('T'),$arr,"tarde");
+            echo '<tr class = "danger"><td colspan="6" style="text-align:center"><b>Noite</b></td></tr>';
+            $this->exibir($this->bolsista->getNumBolsista('N'),$arr,"noite");
+            echo '    
                 </tbody>
-                </table>
-                
-                ';
+                </table>';
         }
     }
     //echo $arr["segunda"][0][0];

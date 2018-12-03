@@ -78,7 +78,7 @@
             </ul>
           </li>
 
-          <li class="treeview active">
+          <li class="treeview">
             <a href="#">
               <i class="fa fa-edit"></i> <span>Função</span>
               <span class="pull-right-container">
@@ -86,21 +86,21 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class='active'><a href="#"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
+              <li class='active'><a href="listar_funcoes.php"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
               <li><a href="../forms/funcao_cadastro.php"><i class="fa fa-circle-o"></i> Nova Função</a></li>
             </ul>
           </li>
 
-          <li class="treeview">
+          <li class="treeview active">
             <a href="#">
               <i class="fa fa-list"></i> <span>Escala</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
-            <ul class="treeview-menu">
+            <ul class="treeview-menu ">
               <li><a href="#"><i class="fa fa-circle-o"></i> Escalas Cadastradas</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Nova Escala</a></li>
+              <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Nova Escala</a></li>
             </ul>
           </li>
           <li>
