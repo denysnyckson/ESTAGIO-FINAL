@@ -164,6 +164,12 @@
             echo '    
                 </tbody>
                 </table>';
+            $decode = json_encode($arr);
+            echo "<input name='escala' id='escala' type='hidden' value='$decode' >";
+            //var_dump($decode);
+        }
+        public function salvar($data,$arr){
+            mysqli_query($this->conn, "INSERT INTO escalas(dia,supervisor,dados) VALUES ('$data','user','$arr')");
         }
     }
     //echo $arr["segunda"][0][0];

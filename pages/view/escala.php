@@ -134,17 +134,19 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Escala gerada</h3>
+              <h3 id='titulo' class="box-title"></h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="post" action="../../php/control/cadastra_bolsista.php">
+            <form role="form" method="post" action="../../php/control/cadastra_escala.php">
               <div class="box-body">
                 <?php require_once '../../php/control/escalagerar.php' ?>
             </div>
               <!-- /.box-body -->
-
-              
+            <div class="box-footer">
+              <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+            <input name='dia' id='dia' type='hidden'>
             </form>
           </div>
     
@@ -213,6 +215,26 @@
       'autoWidth'   : false
     })
   })
+  
+</script>
+<script>
+  var d = new Date();
+  var month = new Array();
+  month[0] = "01";
+  month[1] = "02";
+  month[2] = "03";
+  month[3] = "04";
+  month[4] = "05";
+  month[5] = "06";
+  month[6] = "07";
+  month[7] = "08";
+  month[8] = "09";
+  month[9] = "10";
+  month[10] = "11";
+  month[11] = "12";
+  var data = d.getDate()+'/'+month[d.getMonth()]+'/'+d.getFullYear();
+  document.getElementById('titulo').innerHTML = 'Escala gerada - '+data;
+  document.getElementById('dia').value = data;
 </script>
 
 </body>
