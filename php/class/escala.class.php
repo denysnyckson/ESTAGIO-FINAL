@@ -171,6 +171,27 @@
         public function salvar($data,$arr){
             mysqli_query($this->conn, "INSERT INTO escalas(dia,supervisor,dados) VALUES ('$data','user','$arr')");
         }
+        public function listar(){
+            $result = mysqli_query($this->conn,"Select * from escalas");
+            if (mysqli_num_rows($result) > 0) {
+                // output data of each row
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo '
+                    <tr>
+                        <td>'.$row['id'].'</td>
+                        <td>'.$row['dia'].'</td>
+                        <td>
+                            <input class="btn btn-primary" type="button" onclick=editar('.$row['id'].') value="Ver">
+                            <input onclick=define_del('.$row['id'].') class="btn btn-danger" type="button" data-toggle="modal" data-target="#modal-default" value="Deletar">
+                        </td>
+                    </tr>
+                ';
+                }
+            } else {
+                echo "0 results";
+            }
+            
+        }
     }
     //echo $arr["segunda"][0][0];
 

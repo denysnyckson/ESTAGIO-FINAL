@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -57,12 +60,12 @@
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">NAVEGAÇÃO</li>
           <li>
-            <a href="../index/index.php">
+            <a href="../../pages/index/index.php">
               <i class="fa fa-dashboard"></i> <span>Inicio</span>
             </a>
           </li>
 
-          <li class="treeview active">
+          <li class="treeview">
             <a href="#">
               <i class="fa fa-user"></i> <span>Bolsistas</span>
               <span class="pull-right-container">
@@ -71,7 +74,7 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="../../pages/view/listar_bolsista.php"><i class="fa fa-circle-o"></i> Bolsistas Cadastrados</a></li>
-              <li class='active'><a href="#"><i class="fa fa-circle-o"></i> Novo Bolsista</a></li>
+              <li><a href="../../pages/forms/bolsista_cadastro.php"><i class="fa fa-circle-o"></i> Novo Bolsista</a></li>
             </ul>
           </li>
 
@@ -83,12 +86,12 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="../view/listar_escala.php"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
-              <li><a href="funcao_cadastro.php"><i class="fa fa-circle-o"></i> Nova Função</a></li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
+              <li><a href="../forms/funcao_cadastro.php"><i class="fa fa-circle-o"></i> Nova Função</a></li>
             </ul>
           </li>
 
-          <li class="treeview">
+          <li class="treeview active">
             <a href="#">
               <i class="fa fa-list"></i> <span>Escala</span>
               <span class="pull-right-container">
@@ -96,7 +99,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-circle-o"></i> Escalas Cadastradas</a></li>
+              <li class="active"><a href="../view/listar_escala.php"><i class="fa fa-circle-o"></i> Escalas Cadastradas</a></li>
               <li><a href="../view/escala.php"><i class="fa fa-circle-o"></i> Nova Escala</a></li>
             </ul>
           </li>
@@ -118,6 +121,12 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
+      <section class="content-header">
+      <h1>
+        Escalas cadastradas
+      </h1>
+        </section>
+
       <section class="content">
       <div class="row">
         <!-- left column -->
@@ -125,41 +134,28 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Novo Bolsista</h3>
+              <h3 class="box-title">Escalas</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form" method="post" action="../../php/control/cadastra_bolsista.php">
               <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Nome</label>
-                  <input name="nome" type="text" class="form-control" id="exampleInputEmail1" placeholder="Digite o nome">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Email</label>
-                    <input name="email" type="email" class="form-control" id="exampleInputPassword1" placeholder="example@example.com">
-                </div>
-                <div class="row">    
-                    <div class="form-group col-md-6">
-                    <label for="exampleInputTel">Telefone</label>
-                    <input name="telefone" type="text" class="form-control" id="exampleInputTel" placeholder="(99) 99999-9999">
-                    </div>
-            
-                    <div class="form-group col-md-6">
-                    <label>Turno</label>
-                    <select name="turno" class="form-control">
-                        <option value='M'>Manhã</option>
-                        <option value='T'>Tarde</option>
-                        <option value='N'>Noite</option>
-                    </select>
-                    </div>
-                </div>
-              </div>
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                  <th>Data</th>
+                  <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <?php require_once '../../php/control/listar_esc.php' ?>
+                </tbody>
+                </table>
+            </div>
               <!-- /.box-body -->
 
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
-              </div>
+              
             </form>
           </div>
     
@@ -182,10 +178,45 @@
   <script src="../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
   <!-- FastClick -->
   <script src="../../bower_components/fastclick/lib/fastclick.js"></script>
+  <!-- Data Tables-->
+  
+<script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
   <!-- AdminLTE App -->
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
+
+  <script>
+  $(function () {
+    $('#example2').DataTable(
+        {
+          "bJQueryUI": true,
+                "oLanguage": {
+                    "sProcessing":   "Processando...",
+                    "sLengthMenu":   "Mostrar _MENU_ registros",
+                    "sZeroRecords":  "Não foram encontrados resultados",
+                    "sInfo":         "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                    "sInfoEmpty":    "Mostrando de 0 até 0 de 0 registros",
+                    "sInfoFiltered": "",
+                    "sInfoPostFix":  "",
+                    "sSearch":       "Buscar:",
+                    "sUrl":          "",
+                    "oPaginate": {
+                        "sFirst":    "Primeiro",
+                        "sPrevious": "Anterior",
+                        "sNext":     "Seguinte",
+                        "sLast":     "Último"
+                    }
+                },
+                'ordering' : false,
+                'lengthChange': false
+                
+        }
+    )
+  })
+</script>
 
 </body>
 

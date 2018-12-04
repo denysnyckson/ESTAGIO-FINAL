@@ -114,7 +114,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-circle-o"></i> Escalas Cadastradas</a></li>
+              <li><a href="../view/listar_escala.php"><i class="fa fa-circle-o"></i> Escalas Cadastradas</a></li>
               <li><a href="../view/escala.php"><i class="fa fa-circle-o"></i> Nova Escala</a></li>
             </ul>
           </li>
