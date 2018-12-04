@@ -7,7 +7,7 @@
         private $bolsista;
         private $funcoes;
         private $escala;
-        private $semana = ["segunda","terça","quarta","quinta","sexta"];
+        private $semana = ["segunda","terca","quarta","quinta","sexta"];
 
         function __construct(){
             $this->bolsista = new Bolsista();
@@ -130,7 +130,7 @@
                     <tr>
                         <td><b>'.$this->name($arr["segunda"][$turno][$x][0]).'</b></td>
                         <td>'.$arr["segunda"][$turno][$x][1].'</td>
-                        <td>'.$arr["terça"][$turno][$x][1].'</td>
+                        <td>'.$arr["terca"][$turno][$x][1].'</td>
                         <td>'.$arr["quarta"][$turno][$x][1].'</td>
                         <td>'.$arr["quinta"][$turno][$x][1].'</td>
                         <td>'.$arr["sexta"][$turno][$x][1].'</td>
@@ -181,7 +181,7 @@
                         <td>'.$row['id'].'</td>
                         <td>'.$row['dia'].'</td>
                         <td>
-                            <input class="btn btn-primary" type="button" onclick=editar('.$row['id'].') value="Ver">
+                            <input class="btn btn-primary" type="button" onclick=ver('.$row['id'].') value="Ver">
                             <input onclick=define_del('.$row['id'].') class="btn btn-danger" type="button" data-toggle="modal" data-target="#modal-default" value="Deletar">
                         </td>
                     </tr>
@@ -191,6 +191,43 @@
                 echo "0 results";
             }
             
+        }
+        public function exibir_escala($id){
+            $arr;
+            $dia;
+            $int = intval($id);
+            $result = mysqli_query($this->conn, "SELECT * FROM escalas WHERE id = $int");
+            while($row = mysqli_fetch_array($result)){
+                $dia = $row['dia'];
+                $arr = json_decode($row['dados'], true);
+            }
+            echo '
+                <table class="table table-bordered table-hover">
+                <tr class = "success">
+                    <td colspan="6" style="text-align:center"><b>Manhã</b></td>
+                </tr>
+                <thead>
+                <tr>
+                <th>Bolsista</th>
+                <th>Segunda</th> 
+                <th>Terça</th>
+                <th>Quarta</th>
+                <th>Quinta</th>
+                <th>Sexta</th>
+                <thead>
+                <tbody>
+                </tr>';
+            $this->exibir($this->bolsista->getNumBolsista('M'),$arr,"manha");
+            echo '<tr class = "info"><td colspan="6" style="text-align:center"><b>Tarde</b></td></tr>';
+            $this->exibir($this->bolsista->getNumBolsista('T'),$arr,"tarde");
+            echo '<tr class = "danger"><td colspan="6" style="text-align:center"><b>Noite</b></td></tr>';
+            $this->exibir($this->bolsista->getNumBolsista('N'),$arr,"noite");
+            echo "
+                </tbody>
+                </table>
+                
+                <input type='hidden' id='dia' value =$dia>"
+                ;
         }
     }
     //echo $arr["segunda"][0][0];

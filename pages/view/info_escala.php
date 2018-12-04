@@ -86,7 +86,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
+              <li class='active'><a href="listar_funcoes.php"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
               <li><a href="../forms/funcao_cadastro.php"><i class="fa fa-circle-o"></i> Nova Função</a></li>
             </ul>
           </li>
@@ -98,9 +98,9 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
-            <ul class="treeview-menu">
-              <li class="active"><a href="../view/listar_escala.php"><i class="fa fa-circle-o"></i> Escalas Cadastradas</a></li>
-              <li><a href="../view/escala.php"><i class="fa fa-circle-o"></i> Nova Escala</a></li>
+            <ul class="treeview-menu ">
+              <li><a href="../../pages/view/listar_escala.php"><i class="fa fa-circle-o"></i> Escalas Cadastradas</a></li>
+              <li class="active"><a href="../../pages/view/escala.php"><i class="fa fa-circle-o"></i> Nova Escala</a></li>
             </ul>
           </li>
           <li>
@@ -123,7 +123,7 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
       <h1>
-        Escalas cadastradas
+        Escala
       </h1>
         </section>
 
@@ -134,28 +134,15 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Escalas</h3>
+              <h3 id='titulo' class="box-title"></h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="post" action="../../php/control/cadastra_bolsista.php">
+            <form role="form" method="post" action="../../php/control/cadastra_escala.php">
               <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Data</th>
-                    <th>Ações</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <?php require_once '../../php/control/listar_esc.php' ?>
-                </tbody>
-                </table>
+                <?php require_once '../../php/control/exibir_escala.php' ?>
             </div>
               <!-- /.box-body -->
-
-              
             </form>
           </div>
     
@@ -190,38 +177,46 @@
 
   <script>
   $(function () {
-    $('#example2').DataTable(
+    $('#example1').DataTable(
         {
-          "bJQueryUI": true,
-                "oLanguage": {
-                    "sProcessing":   "Processando...",
-                    "sLengthMenu":   "Mostrar _MENU_ registros",
-                    "sZeroRecords":  "Não foram encontrados resultados",
-                    "sInfo":         "Mostrando de _START_ até _END_ de _TOTAL_ registros",
-                    "sInfoEmpty":    "Mostrando de 0 até 0 de 0 registros",
-                    "sInfoFiltered": "",
-                    "sInfoPostFix":  "",
-                    "sSearch":       "Buscar:",
-                    "sUrl":          "",
-                    "oPaginate": {
-                        "sFirst":    "Primeiro",
-                        "sPrevious": "Anterior",
-                        "sNext":     "Seguinte",
-                        "sLast":     "Último"
-                    }
-                },
-                'ordering' : false,
-                'lengthChange': false
-                
+            "sEmptyTable": "Nenhum registro encontrado",
+            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+            "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+            "sInfoPostFix": "",
+            "sInfoThousands": ".",
+            "sLengthMenu": "_MENU_ resultados por página",
+            "sLoadingRecords": "Carregando...",
+            "sProcessing": "Processando...",
+            "sZeroRecords": "Nenhum registro encontrado",
+            "sSearch": "Pesquisar",
+            "oPaginate": {
+                "sNext": "Próximo",
+                "sPrevious": "Anterior",
+                "sFirst": "Primeiro",
+                "sLast": "Último"
+            },
+            "oAria": {
+                "sSortAscending": ": Ordenar colunas de forma ascendente",
+                "sSortDescending": ": Ordenar colunas de forma descendente"
+            }
         }
     )
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : false,
+      'info'        : true,
+      'autoWidth'   : false
+    })
   })
+  
 </script>
 <script>
-  function ver(id){
-    window.location.replace("../../pages/view/info_escala.php?id="+id);
-  }
+  document.getElementById('titulo').innerHTML = 'Escala gerada - '+document.getElementById('dia').value;
 </script>
+
 </body>
 
 </html>
