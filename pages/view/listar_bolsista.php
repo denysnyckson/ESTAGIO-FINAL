@@ -266,9 +266,6 @@
     function define_del(id){
       document.getElementById('define').value = id;
     }
-    function fon(id){
-      alert("fon");
-    }
     $('.fechar').on('click', function(){
       $('.modal').modal('hide'); 
     });

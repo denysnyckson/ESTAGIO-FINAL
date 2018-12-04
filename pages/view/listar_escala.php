@@ -153,6 +153,27 @@
                 </tbody>
                 </table>
             </div>
+            <input type="hidden" id="define" value="null">
+          <div class="modal fade" id="modal-default">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">Deletar Bolsista</h4>
+                </div>
+                <div class="modal-body">
+                  <p>Deseja realmente apagar esse bolsista?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Fechar</button>
+                  <button onclick=deletar() type="button" class="btn btn-danger fechar">Deletar</button>
+                </div>
+              </div>
+              <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+          </div>
               <!-- /.box-body -->
 
               
@@ -221,6 +242,16 @@
   function ver(id){
     window.location.replace("../../pages/view/info_escala.php?id="+id);
   }
+  function deletar(){
+      var id = document.getElementById('define').value;
+      window.location.replace("../../php/control/deletar_esc.php?id="+id);
+    }
+  function define_del(id){
+      document.getElementById('define').value = id;
+    }
+    $('.fechar').on('click', function(){
+      $('.modal').modal('hide'); 
+    });
 </script>
 </body>
 

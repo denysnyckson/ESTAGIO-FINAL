@@ -99,8 +99,8 @@
               </span>
             </a>
             <ul class="treeview-menu ">
-              <li><a href="../../pages/view/listar_escala.php"><i class="fa fa-circle-o"></i> Escalas Cadastradas</a></li>
-              <li class="active"><a href="../../pages/view/escala.php"><i class="fa fa-circle-o"></i> Nova Escala</a></li>
+              <li class="active"><a href="../../pages/view/listar_escala.php"><i class="fa fa-circle-o"></i> Escalas Cadastradas</a></li>
+              <li><a href="../../pages/view/escala.php"><i class="fa fa-circle-o"></i> Nova Escala</a></li>
             </ul>
           </li>
           <li>
@@ -145,6 +145,7 @@
               <!-- /.box-body -->
             </form>
           </div>
+          
     
       <!-- /.content -->
     </div>
@@ -215,6 +216,7 @@
 </script>
 <script>
   document.getElementById('titulo').innerHTML = 'Escala gerada - '+document.getElementById('dia').value;
+
 </script>
 
 </body>

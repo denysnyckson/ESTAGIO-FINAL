@@ -229,6 +229,11 @@
                 <input type='hidden' id='dia' value =$dia>"
                 ;
         }
+        public function deletar($id){
+            $int = intval($id);
+            $sql = "DELETE FROM escalas WHERE id = $int";
+            mysqli_query($this->conn, $sql);
+        }
     }
     //echo $arr["segunda"][0][0];
 
