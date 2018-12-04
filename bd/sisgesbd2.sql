@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 24-Nov-2018 às 05:46
+-- Generation Time: 04-Dez-2018 às 02:10
 -- Versão do servidor: 10.1.36-MariaDB
 -- versão do PHP: 7.2.11
 
@@ -32,20 +32,25 @@ CREATE TABLE `bolsistas` (
   `id` int(11) NOT NULL,
   `nome` varchar(33) NOT NULL,
   `horario` varchar(13) NOT NULL,
-  `email` varchar(33) NOT NULL
+  `email` varchar(33) NOT NULL,
+  `telefone` varchar(33) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `bolsistas`
 --
 
-INSERT INTO `bolsistas` (`id`, `nome`, `horario`, `email`) VALUES
-(1, 'Denys Nyckson', 'N', 'denysboy@gmail.com'),
-(2, 'Fernando José', 'M', 'fernando.jose@gmail.com'),
-(3, 'Akacia', 'M', 'akacia@gmail.com'),
-(4, 'Clara', 'N', 'clara@gmail.com'),
-(5, 'Bismark', 'M', 'bissmark'),
-(6, 'Everton', 'M', 'evertonfrnds@gmail.com');
+INSERT INTO `bolsistas` (`id`, `nome`, `horario`, `email`, `telefone`) VALUES
+(2, 'Akacia', 'M', 'akacia@gmail.com', ''),
+(3, 'Bismark', 'M', 'bismark@gmail.com', ''),
+(4, 'Raiane', 'T', 'raiane@gmail.com', ''),
+(5, 'Samara', 'T', 'samara@gmail.com', ''),
+(6, 'Petronildo', 'T', 'petronildo@gmail.com', ''),
+(7, 'Clara', 'N', 'clara@gmail.com', '(88) 1234567890'),
+(8, 'Junior', 'N', 'junior@gmail.com', ''),
+(9, 'Luana', 'N', 'luana@gmail.com', ''),
+(10, 'Denys', 'N', 'denysboy@gmail.com', ''),
+(12, 'Fernando ', 'M', 'fernando@gmail.com', '');
 
 -- --------------------------------------------------------
 
@@ -55,10 +60,17 @@ INSERT INTO `bolsistas` (`id`, `nome`, `horario`, `email`) VALUES
 
 CREATE TABLE `escalas` (
   `id` int(11) NOT NULL,
-  `data` varchar(11) NOT NULL,
+  `dia` varchar(22) NOT NULL,
   `supervisor` varchar(33) NOT NULL,
   `dados` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `escalas`
+--
+
+INSERT INTO `escalas` (`id`, `dia`, `supervisor`, `dados`) VALUES
+(5, '3/12/2018', 'user', '{\"segunda\":{\"manha\":[[\"2\",\"Balcao\"],[\"3\",\"Guarda Volumes\"],[\"12\",\"Checkout\"]],\"tarde\":[[\"4\",\"Checkout\"],[\"5\",\"Balcao\"],[\"6\",\"Guarda Volumes\"]],\"noite\":[[\"7\",\"Balcao\"],[\"8\",\"Balcao\"],[\"9\",\"Guarda Volumes\"],[\"10\",\"Checkout\"]]},\"teru00e7a\":{\"manha\":[[\"2\",\"Checkout\"],[\"3\",\"Guarda Volumes\"],[\"12\",\"Balcao\"]],\"tarde\":[[\"4\",\"Checkout\"],[\"5\",\"Guarda Volumes\"],[\"6\",\"Balcao\"]],\"noite\":[[\"7\",\"Checkout\"],[\"8\",\"Guarda Volumes\"],[\"9\",\"Balcao\"],[\"10\",\"Balcao\"]]},\"quarta\":{\"manha\":[[\"2\",\"Checkout\"],[\"3\",\"Balcao\"],[\"12\",\"Guarda Volumes\"]],\"tarde\":[[\"4\",\"Guarda Volumes\"],[\"5\",\"Checkout\"],[\"6\",\"Balcao\"]],\"noite\":[[\"7\",\"Balcao\"],[\"8\",\"Checkout\"],[\"9\",\"Guarda Volumes\"],[\"10\",\"Balcao\"]]},\"quinta\":{\"manha\":[[\"2\",\"Balcao\"],[\"3\",\"Guarda Volumes\"],[\"12\",\"Checkout\"]],\"tarde\":[[\"4\",\"Guarda Volumes\"],[\"5\",\"Checkout\"],[\"6\",\"Balcao\"]],\"noite\":[[\"7\",\"Balcao\"],[\"8\",\"Checkout\"],[\"9\",\"Guarda Volumes\"],[\"10\",\"Balcao\"]]},\"sexta\":{\"manha\":[[\"2\",\"Balcao\"],[\"3\",\"Guarda Volumes\"],[\"12\",\"Checkout\"]],\"tarde\":[[\"4\",\"Guarda Volumes\"],[\"5\",\"Balcao\"],[\"6\",\"Checkout\"]],\"noite\":[[\"7\",\"Balcao\"],[\"8\",\"Balcao\"],[\"9\",\"Guarda Volumes\"],[\"10\",\"Checkout\"]]}}');
 
 -- --------------------------------------------------------
 
@@ -77,9 +89,9 @@ CREATE TABLE `funcoes` (
 --
 
 INSERT INTO `funcoes` (`id`, `nome`, `qnt`) VALUES
-(1, 'balcao', 2),
-(2, 'checkout', 1),
-(3, 'guarda_volumes', 1);
+(1, 'Balcao', 2),
+(2, 'Checkout', 1),
+(3, 'Guarda Volumes', 1);
 
 -- --------------------------------------------------------
 
@@ -138,13 +150,13 @@ ALTER TABLE `gestor`
 -- AUTO_INCREMENT for table `bolsistas`
 --
 ALTER TABLE `bolsistas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `escalas`
 --
 ALTER TABLE `escalas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `funcoes`
