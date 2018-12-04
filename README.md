@@ -42,7 +42,7 @@ acontecer, e a agilização do processo de criação de escalas!
 
 ### Gerente atual: [fjose123](https://github.com/fjose123)
 
-#### Iteração atual: 4ª
+#### Iteração atual: 5ª
 
 | *Iteração* | *Aluno*     | *Função*      | *Inicio - Fim*          |
 | ---------- | ----------- | ------------- | ----------------------- |
@@ -70,11 +70,11 @@ acontecer, e a agilização do processo de criação de escalas!
 | 4          | Fernando    | Desenvolvedor |                         |
 | 4          | Igor        | Desenvolvedor |                         |
 | -          | -           | -             |                         |
-| *4*        | *Fernando*  | *Gerente*     |*01/12/2018 - 04/12/2018*|
-| 4          | Narciso     | Desenvolvedor |                         |
-| 4          | Denys       | Desenvolvedor |                         |
-| 4          | Everton     | Desenvolvedor |                         |
-| 4          | Igor        | Desenvolvedor |                         |
+| *5*        | *Fernando*  | *Gerente*     |*01/12/2018 - 04/12/2018*|
+| 5          | Narciso     | Desenvolvedor |                         |
+| 5          | Denys       | Desenvolvedor |                         |
+| 5          | Everton     | Desenvolvedor |                         |
+| 5          | Igor        | Desenvolvedor |                         |
 | -          | -           | -             |                         |
 
 ## Licença
