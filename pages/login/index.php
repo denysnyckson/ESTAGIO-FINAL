@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SISGES | Login</title>
+  <title>AdminLTE 2 | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -40,7 +40,7 @@
     <form action="../../php/control/login.php" method="post">
       <div class="form-group has-feedback">
         <input name="user" type="text" class="form-control" placeholder="Usuario">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <span class="fa fa-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <input name="pass" type="password" class="form-control" placeholder="Senha">
@@ -53,10 +53,7 @@
     </form>   
     <!-- /.social-auth-links -->
     <div> <br> </div>
-    <div>
-        <a href="#">Esqueci minha senha</a><br>
-        
-    </div>
+    
 
   </div>
   <!-- /.login-box-body -->
