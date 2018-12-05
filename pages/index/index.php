@@ -70,8 +70,8 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="../../pages/view/listar_bolsista.php"  data-toggle="tooltip" data-placement="right" title="Todos os Bolsistas cadastrados"><i class="fa fa-circle-o"></i> Bolsistas Cadastrados</a></li>
-              <li><a href="../forms/bolsista_cadastro.php"  data-toggle="tooltip" data-placement="right" title="Cadastrar Novo Bolsista"><i class="fa fa-circle-o"></i> Novo Bolsista</a></li>
+              <li><a href="../../pages/view/listar_bolsista.php"  data-toggle="tooltip" data-placement="right" title="Todos os Bolsistas cadastrados"><i class="fa fa-users"></i> Bolsistas Cadastrados</a></li>
+              <li><a href="../forms/bolsista_cadastro.php"  data-toggle="tooltip" data-placement="right" title="Cadastrar Novo Bolsista"><i class="fa fa-user-plus"></i> Novo Bolsista</a></li>
             </ul>
           </li>
 
@@ -83,8 +83,8 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="../../pages/view/listar_funcoes.php"  data-toggle="tooltip" data-placement="right" title="Funções cadastradas"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
-              <li><a href="../forms/funcao_cadastro.php"  data-toggle="tooltip" data-placement="right" title="Cadastrar uma nova Função"><i class="fa fa-circle-o"></i> Nova Função</a></li>
+              <li><a href="../../pages/view/listar_funcoes.php"  data-toggle="tooltip" data-placement="right" title="Funções cadastradas"><i class="fa fa-list"></i> Funções Cadastradas</a></li>
+              <li><a href="../forms/funcao_cadastro.php"  data-toggle="tooltip" data-placement="right" title="Cadastrar uma nova Função"><i class="fa fa-indent"></i> Nova Função</a></li>
             </ul>
           </li>
 
@@ -96,8 +96,8 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="../view/listar_escala.php" data-toggle="tooltip" data-placement="right" title="Todas as Escalas cadastradas"><i class="fa fa-circle-o"></i> Escalas Cadastradas</a></li>
-              <li><a href="../view/escala.php" data-toggle="tooltip" data-placement="right" title="Cadastrar uma nova escala"><i class="fa fa-circle-o"></i> Nova Escala</a></li>
+              <li><a href="../view/listar_escala.php" data-toggle="tooltip" data-placement="right" title="Todas as Escalas cadastradas"><i class="fa fa-table"></i> Escalas Cadastradas</a></li>
+              <li><a href="../view/escala.php" data-toggle="tooltip" data-placement="right" title="Cadastrar uma nova escala"><i class="fa fa-table"></i> Nova Escala</a></li>
             </ul>
           </li>
           <li>
