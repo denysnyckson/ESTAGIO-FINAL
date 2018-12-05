@@ -133,25 +133,29 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nome</label>
-                  <input name="nome" type="text" class="form-control" id="exampleInputEmail1" placeholder="Digite o nome">
+                  <input name="nome" type="text" class="form-control" id="exampleInputEmail1" placeholder="Digite o nome" require>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Email</label>
-                    <input name="email" type="email" class="form-control" id="exampleInputPassword1" placeholder="example@example.com">
+                    <input name="email" type="email" class="form-control" id="exampleInputPassword1" placeholder="example@example.com" require>
                 </div>
                 <div class="row">    
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                     <label for="exampleInputTel">Telefone</label>
                     <input name="telefone" type="text" class="form-control" id="exampleInputTel" placeholder="(99) 99999-9999">
                     </div>
             
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                     <label>Turno</label>
-                    <select name="turno" class="form-control">
+                    <select name="turno" class="form-control" require>
                         <option value='M'>Manhã</option>
                         <option value='T'>Tarde</option>
                         <option value='N'>Noite</option>
                     </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                    <label for="exampleInputHor">Horario</label>
+                    <input name="horas" type="text" class="form-control" id="exampleInputHor" placeholder="7:00 - 11:00" require>
                     </div>
                 </div>
               </div>
