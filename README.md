@@ -27,7 +27,6 @@ acontecer, e a agilização do processo de criação de escalas!
 ## Desenvolvido com
 
 * [PHP](http://php.net/) - Linguagem de programação utilizada
-* [Material Design Lite](https://getmdl.io/) - Framework de telas
 * [Bootstrap 4](https://getbootstrap.com/) - kit de ferramentas de código aberto para desenvolvimento com HTML, CSS e JS.
 * [Java Script](https://www.javascript.com/) - Linguagem de programação interpretada
 
@@ -41,9 +40,9 @@ acontecer, e a agilização do processo de criação de escalas!
 
 ## Responsabilidades + Gerência
 
-### Gerente atual: [denysnyckson](https://github.com/denysnyckson)
+### Gerente atual: [fjose123](https://github.com/fjose123)
 
-#### Iteração atual: 1ª
+#### Iteração atual: 5ª
 
 | *Iteração* | *Aluno*     | *Função*      | *Inicio - Fim*          |
 | ---------- | ----------- | ------------- | ----------------------- |
@@ -53,17 +52,29 @@ acontecer, e a agilização do processo de criação de escalas!
 | 1          | Fernando    | Desenvolvedor |                         |
 | 1          | Igor        | Desenvolvedor |                         |
 | -          | -           | -             |                         |
-| *2*        | *Igor*      | *Gerente*     |*07/10/2018 - 14/11/2018*|
+| *2*        | *Igor*      | *Gerente*     |*07/11/2018 - 14/11/2018*|
 | 2          | Denys       | Desenvolvedor |                         |
 | 2          | Everton     | Desenvolvedor |                         |
 | 2          | Fernando    | Desenvolvedor |                         |
 | 2          | Narciso     | Desenvolvedor |                         |
 | -          | -           | -             |                         |
-| *3*        | *Denys*     | *Gerente*     |*15/10/2018 - 22/11/2018*|
+| *3*        | *Denys*     | *Gerente*     |*15/11/2018 - 22/11/2018*|
 | 3          | Narciso     | Desenvolvedor |                         |
 | 3          | Everton     | Desenvolvedor |                         |
 | 3          | Fernando    | Desenvolvedor |                         |
 | 3          | Igor        | Desenvolvedor |                         |
+| -          | -           | -             |                         |
+| *4*        | *Everton*   | *Gerente*     |*23/11/2018 - 30/11/2018*|
+| 4          | Narciso     | Desenvolvedor |                         |
+| 4          | Denys       | Desenvolvedor |                         |
+| 4          | Fernando    | Desenvolvedor |                         |
+| 4          | Igor        | Desenvolvedor |                         |
+| -          | -           | -             |                         |
+| *5*        | *Fernando*  | *Gerente*     |*01/12/2018 - 04/12/2018*|
+| 5          | Narciso     | Desenvolvedor |                         |
+| 5          | Denys       | Desenvolvedor |                         |
+| 5          | Everton     | Desenvolvedor |                         |
+| 5          | Igor        | Desenvolvedor |                         |
 | -          | -           | -             |                         |
 
 ## Licença
