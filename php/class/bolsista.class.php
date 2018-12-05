@@ -10,8 +10,8 @@
             $this->instance = ConnectDb::getInstance();
             $this->conn = $this->instance->getConnection();
         }
-        public function cadastrar($nome,$turno,$email,$telefone){
-            $stmt = $this->conn->prepare("INSERT INTO bolsistas(nome,horario,email,telefone) VALUES ('$nome','$turno','$email','$telefone')");
+        public function cadastrar($nome,$turno,$email,$telefone,$horas){
+            $stmt = $this->conn->prepare("INSERT INTO bolsistas(nome,horario,email,telefone,horas) VALUES ('$nome','$turno','$email','$telefone','$horas')");
             $stmt->execute();
         }
         public function listar(){
@@ -58,12 +58,13 @@
                     <input type="hidden" id="edEmail" value='.$value['email'].'>
                     <input type="hidden" id="edTurno" value='.$value['horario'].'>
                     <input type="hidden" id="edTelefone" value="'.$value['telefone'].'">
+                    <input type="hidden" id="edHoras" value="'.$value['horas'].'">
                 ';
             }
         }
-        public function editar($id,$nome,$email,$turno,$telefone){
+        public function editar($id,$nome,$email,$turno,$telefone,$horas){
             $int = intval($id);
-            $sql = "UPDATE bolsistas SET nome = '$nome', email ='$email',horario = '$turno',telefone = '$telefone' WHERE id = $int";
+            $sql = "UPDATE bolsistas SET nome = '$nome', email ='$email',horario = '$turno',telefone = '$telefone', horas = '$horas' WHERE id = $int";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             //var_dump($int);

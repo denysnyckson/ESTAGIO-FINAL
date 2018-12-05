@@ -141,18 +141,22 @@
                     <input name="email" type="email" class="form-control" id="ipEmail" placeholder="example@example.com">
                 </div>
                 <div class="row">    
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                     <label for="exampleInputTel">Telefone</label>
                     <input name="telefone" id="ipTelefone" type="text" class="form-control" id="exampleInputTel" placeholder="(99) 99999-9999">
                     </div>
             
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                     <label>Turno</label>
                     <select id="ipTurno" name="turno" class="form-control">
                         <option value='M'>Manhã</option>
                         <option value='T'>Tarde</option>
                         <option value='N'>Noite</option>
                     </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                    <label for="exampleInputHor">Horario</label>
+                    <input id="ipHoras" name="horas" type="text" class="form-control" id="exampleInputHor" placeholder="7:00 - 11:00">
                     </div>
                 </div>
               </div>
@@ -197,6 +201,7 @@
       document.getElementById('ipEmail').value = email;
       document.getElementById('ipTurno').value = turno;
       document.getElementById('ipTelefone').value = telefone;
+      document.getElementById('ipHoras').value = document.getElementById('edHoras').value;
   </script>
 
 </body>

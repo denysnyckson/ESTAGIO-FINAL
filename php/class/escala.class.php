@@ -44,6 +44,20 @@
                     array_push($array, [$arrBol[$i][0],$arrFun[$var][1]]);
                     unset($arrFun[$var]);
                 }
+            }else{
+                $arrBol = $this->arrayBol('M'); 
+                $arrFun = $this->arrayFunOther();
+                $num = count($arrFun) - 1;
+                for($i = 0;$i < $this->bolsista->getNumBolsista('M');$i++){
+                    while(count($arrFun)!=0){
+                        $var = rand(0, $num);   
+                        if(array_key_exists($var, $arrFun)){
+                            break;
+                        }
+                    }
+                    array_push($array, [$arrBol[$i][0],$arrFun[$var][1]]);
+                    unset($arrFun[$var]);
+                }
             }
             return $array;
         }
@@ -63,14 +77,42 @@
                     array_push($array, [$arrBol[$i][0],$arrFun[$var][1]]);
                     unset($arrFun[$var]);
                 }
+            }else{
+                $arrBol = $this->arrayBol('T'); 
+                $arrFun = $this->arrayFunOther();
+                $num = count($arrFun) - 1;
+                for($i = 0;$i < $this->bolsista->getNumBolsista('T');$i++){
+                    while(count($arrFun)!=0){
+                        $var = rand(0, $num);   
+                        if(array_key_exists($var, $arrFun)){
+                            break;
+                        }
+                    }
+                    array_push($array, [$arrBol[$i][0],$arrFun[$var][1]]);
+                    unset($arrFun[$var]);
+                }
             }
             return $array;
         }
         private function gerarNoite(){
             $array =[];
-            if($this->bolsista->getNumBolsista('N') == 4){
+            if($this->bolsista->getNumBolsista('N') ==  $this->funcoes->getNumFuncoes()){
                 $arrBol = $this->arrayBol('N'); 
-                $arrFun = $this->arrayFunN();
+                $arrFun = $this->arrayFun();
+                $num = count($arrFun) - 1;
+                for($i = 0;$i < $this->bolsista->getNumBolsista('N');$i++){
+                    while(count($arrFun)!=0){
+                        $var = rand(0, $num);   
+                        if(array_key_exists($var, $arrFun)){
+                            break;
+                        }
+                    }
+                    array_push($array, [$arrBol[$i][0],$arrFun[$var][1]]);
+                    unset($arrFun[$var]);
+                }
+            }else{
+                $arrBol = $this->arrayBol('N'); 
+                $arrFun = $this->arrayFunOther();
                 $num = count($arrFun) - 1;
                 for($i = 0;$i < $this->bolsista->getNumBolsista('N');$i++){
                     while(count($arrFun)!=0){
@@ -104,7 +146,7 @@
             return $arr;
             //var_dump($arr);
         }
-        public function arrayFunN(){
+        public function arrayFunOther(){
             $arr =[];
             $funcao = mysqli_query($this->conn,"SELECT * from funcoes");
             while ($row = mysqli_fetch_array($funcao)){
@@ -117,12 +159,13 @@
         }
         public function name($id){
             $int = intval($id);
-            $sql = "SELECT nome FROM bolsistas WHere id = $int";
+            $sql = "SELECT nome, horas FROM bolsistas WHere id = $int";
             $result = mysqli_query($this->conn, $sql);
             while($row = mysqli_fetch_assoc($result)) {
-                $nome = $row["nome"];
+                $nome = $row['nome'];
+                $horas = $row['horas'];
             }
-            return $nome;
+            return $nome.' '.$horas;
         }
         public function exibir($numBol,$arr,$turno){
             for($x = 0;$x<$numBol; $x++){
