@@ -245,7 +245,7 @@
                 $arr = json_decode($row['dados'], true);
             }
             echo '
-                <table class="table table-bordered table-hover">
+                <table id="example1" class="table table-bordered table-hover">
                 <tr class = "success">
                     <td colspan="6" style="text-align:center"><b>Manhã</b></td>
                 </tr>
@@ -269,7 +269,8 @@
                 </tbody>
                 </table>
                 
-                <input type='hidden' id='dia' value =$dia>"
+                <input type='hidden' id='dia' value =$dia>
+                <input type='hidden' id='idd' value=$id>"
                 ;
         }
         public function deletar($id){
@@ -277,9 +278,78 @@
             $sql = "DELETE FROM escalas WHERE id = $int";
             mysqli_query($this->conn, $sql);
         }
+        public function gerar_html($id){
+            $arr;
+            $int = intval($id);
+            $result = mysqli_query($this->conn, "SELECT * FROM escalas WHERE id = $int");
+            while($row = mysqli_fetch_array($result)){
+                $dia = $row['dia'];
+                $arr = json_decode($row['dados'], true);
+            }
+
+            $html ='
+            <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+            <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+            <h3 style="text-align:center">Escala gerada - '.$dia.'</h3><br>
+            <table class="table table-bordered table-hover">
+            <tbody>
+            <tr>
+                <th>Bolsista</td>
+                <th>Segunda</td>
+                <th>Terça</td>
+                <th>Quarta</td>
+                <th>Quinta</td>
+                <th>Sexta</td>
+            </tr>
+            <tr class="success">
+                <td colspan="6" style="text-align:center"><b>Manhã<b></td>
+            </tr>
+            ';
+            for($x = 0;$x< $this->bolsista->getNumBolsista('M'); $x++){
+                $html = $html . '
+                    <tr>
+                        <td><b>'.$this->name($arr["segunda"]['manha'][$x][0]).'</b></td>
+                        <td>'.$arr["segunda"]['manha'][$x][1].'</td>
+                        <td>'.$arr["terca"]['manha'][$x][1].'</td>
+                        <td>'.$arr["quarta"]['manha'][$x][1].'</td>
+                        <td>'.$arr["quinta"]['manha'][$x][1].'</td>
+                        <td>'.$arr["sexta"]['manha'][$x][1].'</td>
+                    </tr>    
+                ';
+            }
+            $html .= 
+            '<tr class="info">
+                <td colspan="6" style="text-align:center"><b>Tarde<b></td>
+            </tr>';
+            for($x = 0;$x< $this->bolsista->getNumBolsista('T'); $x++){
+                $html = $html . '
+                    <tr>
+                        <td><b>'.$this->name($arr["segunda"]['tarde'][$x][0]).'</b></td>
+                        <td>'.$arr["segunda"]['tarde'][$x][1].'</td>
+                        <td>'.$arr["terca"]['tarde'][$x][1].'</td>
+                        <td>'.$arr["quarta"]['tarde'][$x][1].'</td>
+                        <td>'.$arr["quinta"]['tarde'][$x][1].'</td>
+                        <td>'.$arr["sexta"]['tarde'][$x][1].'</td>
+                    </tr>    
+                ';
+            }
+            $html .= 
+            '<tr class="danger">
+                <td colspan="6" style="text-align:center"><b>Noite<b></td>
+            </tr>';
+            for($x = 0;$x< $this->bolsista->getNumBolsista('N'); $x++){
+                $html = $html . '
+                    <tr>
+                        <td><b>'.$this->name($arr["segunda"]['noite'][$x][0]).'</b></td>
+                        <td>'.$arr["segunda"]['noite'][$x][1].'</td>
+                        <td>'.$arr["terca"]['noite'][$x][1].'</td>
+                        <td>'.$arr["quarta"]['noite'][$x][1].'</td>
+                        <td>'.$arr["quinta"]['noite'][$x][1].'</td>
+                        <td>'.$arr["sexta"]['noite'][$x][1].'</td>
+                    </tr>    
+                ';
+            }
+            return $html;
+        }
     }
-    //echo $arr["segunda"][0][0];
-
-
-    
 ?>

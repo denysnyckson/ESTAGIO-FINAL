@@ -142,11 +142,13 @@
               <div class="box-body">
                 <?php require_once '../../php/control/exibir_escala.php' ?>
             </div>
+            <div class="box-footer">
+              <input class='btn btn-primary' type="button" onclick=baixar() value="Baixar">
+              
+              </div>
               <!-- /.box-body -->
             </form>
           </div>
-          
-    
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -177,46 +179,14 @@
   <script src="../../dist/js/demo.js"></script>
 
   <script>
-  $(function () {
-    $('#example1').DataTable(
-        {
-            "sEmptyTable": "Nenhum registro encontrado",
-            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
-            "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
-            "sInfoFiltered": "(Filtrados de _MAX_ registros)",
-            "sInfoPostFix": "",
-            "sInfoThousands": ".",
-            "sLengthMenu": "_MENU_ resultados por página",
-            "sLoadingRecords": "Carregando...",
-            "sProcessing": "Processando...",
-            "sZeroRecords": "Nenhum registro encontrado",
-            "sSearch": "Pesquisar",
-            "oPaginate": {
-                "sNext": "Próximo",
-                "sPrevious": "Anterior",
-                "sFirst": "Primeiro",
-                "sLast": "Último"
-            },
-            "oAria": {
-                "sSortAscending": ": Ordenar colunas de forma ascendente",
-                "sSortDescending": ": Ordenar colunas de forma descendente"
-            }
-        }
-    )
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': true,
-      'searching'   : true,
-      'ordering'    : false,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
   
 </script>
 <script>
   document.getElementById('titulo').innerHTML = 'Escala gerada - '+document.getElementById('dia').value;
-
+  function baixar(){
+    var id = document.getElementById('idd').value;
+    window.open("../../php/control/gerarpdf.php?id="+id);
+  }
 </script>
 
 </body>

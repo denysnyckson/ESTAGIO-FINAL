@@ -138,7 +138,7 @@
                     </div>
             
                     <div class="form-group col-md-6">
-                    <label for="qnt">Quantidade</label>
+                    <label for="qnt">Quantidade de bolsistas</label>
                     <input name="qnt" id="number" type="text" class="form-control" id="qnt">
                     </div>
                 </div>
