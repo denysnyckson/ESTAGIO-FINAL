@@ -143,8 +143,8 @@
                 <?php require_once '../../php/control/exibir_escala.php' ?>
             </div>
             <div class="box-footer">
-              <input class='btn btn-primary' type="button" onclick=baixar() value="Baixar">
-              <input class='btn btn-success' type="button" onclick=enviar() value="Enviar email">
+              <input class='btn btn-primary' type="button" onclick=baixar() value="Gerar PDF">
+              <input class='btn btn-success' type="button" onclick=enviar() value="Enviar escala por Email">
               </div>
               <!-- /.box-body -->
             </form>

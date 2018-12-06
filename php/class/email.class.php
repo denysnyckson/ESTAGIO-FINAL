@@ -11,7 +11,7 @@
         private $mail;    
         private $bolsista;
         private $empresa = 'SISGES';
-        private $nome = "Olá usuário(a)";
+        private $nome = "Olá ";
         private $mensagem = "Segue o anexo da escala gerada";
         private $arquivo = '../../php/pdf/escala.pdf';
         private $email = 'sisges.ufrn@gmail.com';
@@ -33,23 +33,16 @@
             $this->mail->AddAttachment($this->arquivo);
         }
         public function enviar(){
-            $int = intval($id);
             $stmt = $this->conn->query("SELECT * FROM bolsistas");
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach($result as $value){
-                $name = $this->nome . $result['nome'];
+                $name = $this->nome . $value['nome'];
                 $this->mail->ClearAddresses();
-                $this->mail->AddAddress($result['email'], $name);
-                $this->mail->msgHTML("<html><br/>{$name}<br/>Enviamos um email de envio da escala para: {$result['email']}<br/>{$this->mensagem}.</html>");
-                $this->mail->AltBody = "de: {$name}\nemail:{$result['email']}\nmensagem: {$this->mensagem}.";
-                if ($mail->send()) {
-                    // header("Location: deucerto.php");
-                    echo 'Mensagem enviada com sucesso!';
-                 } else {
-                    // header("Location: deuerrado.php");
-                    echo 'Mensagem não foi enviada!';
-                }
+                $this->mail->AddAddress($value['email'], $name);
+                $this->mail->msgHTML("<html><br/>{$name}<br/>Enviamos um email de envio da escala para: {$value['email']}<br/>{$this->mensagem}.</html>");
+                $this->mail->AltBody = "de: {$name}\nemail:{$value['email']}\nmensagem: {$this->mensagem}.";
+                $this->mail->send();
             }
         }
         public function enviarTeste(){
@@ -57,8 +50,8 @@
             //$stmt = $this->conn->query("SELECT * FROM bolsistas");
             //$stmt->execute();
             //$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $arr = ['evertonfernand23@gmail.com','denysboy10@gmail.com','evertonfrnds@gmail.com'];
-            for($x=0;$x<3;$x++){
+            $arr = ['evertonfernand23@gmail.com','evertonfrnds@gmail.com'];
+            for($x=0;$x<2;$x++){
                 $name = $this->nome;
                 $this->mail->ClearAddresses();
                 $this->mail->AddAddress($arr[$x], $name);

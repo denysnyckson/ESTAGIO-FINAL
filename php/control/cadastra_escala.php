@@ -4,5 +4,5 @@
     $dia = $_POST['dia'];
     $esc = new Escala();
     $esc->salvar($dia,$escala);
-    header("Location: ../../pages/index");
+    header("Location: ../../pages/view/listar_escala.php");
 ?>
