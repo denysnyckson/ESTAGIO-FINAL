@@ -39,6 +39,7 @@
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach($result as $value){
                 $name = $this->nome . $result['nome'];
+                $this->mail->ClearAddresses();
                 $this->mail->AddAddress($result['email'], $name);
                 $this->mail->msgHTML("<html><br/>{$name}<br/>Enviamos um email de envio da escala para: {$result['email']}<br/>{$this->mensagem}.</html>");
                 $this->mail->AltBody = "de: {$name}\nemail:{$result['email']}\nmensagem: {$this->mensagem}.";
