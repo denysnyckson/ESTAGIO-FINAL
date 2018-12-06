@@ -13,10 +13,10 @@
     $dompdf = new DOMPDF();
     $dompdf->load_html($html);
     $dompdf->render();
-    $output = $dompdf->output();
+    //$output = $dompdf->output();
     $dompdf->stream(
         "escala.pdf",array("Attachment"=>false)
     );
-    file_put_contents('../pdf/escala.pdf', $output);
+    //file_put_contents('../pdf/escala.pdf', $output);
    
 ?>

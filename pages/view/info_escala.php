@@ -144,7 +144,7 @@
             </div>
             <div class="box-footer">
               <input class='btn btn-primary' type="button" onclick=baixar() value="Baixar">
-              
+              <input class='btn btn-success' type="button" onclick=enviar() value="Enviar email">
               </div>
               <!-- /.box-body -->
             </form>
@@ -186,6 +186,10 @@
   function baixar(){
     var id = document.getElementById('idd').value;
     window.open("../../php/control/gerarpdf.php?id="+id);
+  }
+  function enviar(){
+    var id = document.getElementById('idd').value;
+    window.location.replace("../../php/control/enviaremail.php?id="+id);
   }
 </script>
 

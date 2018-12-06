@@ -1,5 +1,5 @@
 <?php
-    require_once 'dompdf/autoload.inc.php';
+    /*require_once 'dompdf/autoload.inc.php';
     use Dompdf\Dompdf;
 
     $html = '
@@ -55,5 +55,7 @@
     $dompdf->load_html($html);
     $dompdf->render();
     $output = $dompdf->output();
-    file_put_contents('tabela.pdf', $output);
+    file_put_contents('tabela.pdf', $output);*/
+    $myfile = fopen("tabela.pdf", "r") or die("Unable to open file!");
+    //var_dump($myfile);
 ?>
