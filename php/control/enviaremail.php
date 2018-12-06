@@ -17,19 +17,8 @@ $dompdf->render();
 $output = $dompdf->output();
 file_put_contents('../../php/pdf/escala.pdf', $output);
 $mail = new Email();
-$mail->enviarTeste();
+$mail->enviar();
 header('Location: ../../pages/view/listar_escala.php');
-
-
-
-
-
-
-
-
-
-
-
 
 
 
