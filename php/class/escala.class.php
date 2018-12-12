@@ -351,5 +351,12 @@
             }
             return $html;
         }
+        public function getLastId(){
+            $id = mysqli_query($this->conn, "select max(id) from escalas");
+            while($row = mysqli_fetch_array($id)){
+                $true = $row['max(id)'];
+            }
+            return $true;
+        }
     }
 ?>

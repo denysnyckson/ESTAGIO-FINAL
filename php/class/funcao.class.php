@@ -15,7 +15,7 @@
             $stmt->execute();
         }
         public function listar(){
-            $stmt = $this->conn->prepare("SELECT nome,qnt FROM funcoes");
+            $stmt = $this->conn->prepare("SELECT * FROM funcoes");
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC); 
             foreach($result as $values){
@@ -23,6 +23,9 @@
                     <tr>
                         <td>'.$values['nome'].'</td>
                         <td>'.$values['qnt'].'</td>
+                        <td>
+                            <input onclick=define_del('.$values['id'].') class="btn btn-danger" type="button" data-toggle="modal" data-target="#modal-default" value="Deletar">
+                        </td>
                     </tr>
                 ';
             }
@@ -32,6 +35,11 @@
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return count($result);
+        }
+        public function deletar($id){
+            $int = intval($id);
+            $sql = "DELETE FROM funcoes WHERE id = $int";
+            $this->conn->exec($sql);
         }
     }
 

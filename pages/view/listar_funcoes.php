@@ -140,11 +140,13 @@
             <!-- form start -->
             <form role="form" method="post" action="../../php/control/cadastra_bolsista.php">
               <div class="box-body">
+              <input type="hidden" id="define">
               <table id="example1" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>Nome</th>
                   <th>Quantidade</th>
+                  <th>Ação</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -154,9 +156,29 @@
             </div>
               <!-- /.box-body -->
 
-              
             </form>
           </div>
+          <div class="modal fade" id="modal-default">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">Deletar Bolsista</h4>
+                </div>
+                <div class="modal-body">
+                  <p>Deseja realmente apagar esse bolsista?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Fechar</button>
+                  <button onclick=deletar() type="button" class="btn btn-danger fechar">Deletar</button>
+                </div>
+              </div>
+              <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+          </div>
+          <!-- /.modal -->
     
       <!-- /.content -->
     </div>
@@ -216,7 +238,18 @@
     )
   })
 </script>
-
+<script>
+    function define_del(id){
+      document.getElementById('define').value = id;
+    }
+    function deletar(){
+      var id = document.getElementById('define').value;
+      window.location.replace("../../php/control/deletar_fun.php?id="+id);
+    }
+    $('.fechar').on('click', function(){
+      $('.modal').modal('hide'); 
+    });
+</script>
 </body>
 
 </html>
