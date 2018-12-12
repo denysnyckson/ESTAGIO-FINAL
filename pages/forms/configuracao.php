@@ -62,7 +62,7 @@
             </a>
           </li>
 
-          <li class="treeview active">
+          <li class="treeview">
             <a href="#">
               <i class="fa fa-user"></i> <span>Bolsistas</span>
               <span class="pull-right-container">
@@ -71,7 +71,7 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="../../pages/view/listar_bolsista.php"><i class="fa fa-circle-o"></i> Bolsistas Cadastrados</a></li>
-              <li class='active'><a href="#"><i class="fa fa-circle-o"></i> Novo Bolsista</a></li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Novo Bolsista</a></li>
             </ul>
           </li>
 
@@ -83,12 +83,12 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="../view/listar_escala.php"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
+              <li><a href="../../pages/view/listar_funcoes.php"><i class="fa fa-circle-o"></i> Funções Cadastradas</a></li>
               <li><a href="funcao_cadastro.php"><i class="fa fa-circle-o"></i> Nova Função</a></li>
             </ul>
           </li>
 
-          <li class="treeview">
+         <li class="treeview">
             <a href="#">
               <i class="fa fa-list"></i> <span>Escala</span>
               <span class="pull-right-container">
@@ -96,12 +96,12 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-circle-o"></i> Escalas Cadastradas</a></li>
+              <li><a href="../view/listar_escala.php"><i class="fa fa-circle-o"></i> Escalas Cadastradas</a></li>
               <li><a href="../view/escala.php"><i class="fa fa-circle-o"></i> Nova Escala</a></li>
             </ul>
           </li>
-          <li>
-            <a href="../../pages/forms/configuracao.php">
+          <li class="active">
+            <a href="#" >
               <i class="fa fa-cog"></i> <span>Configuração</span>
             </a>
           </li>
@@ -125,48 +125,34 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Novo Bolsista</h3>
+              <h3 class="box-title">Configuração</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="post" action="../../php/control/cadastra_bolsista.php">
+            <form role="form" method="post" action="../../php/control/editar_gestor.php">
+            <?php include '../../php/control/setConfig.php'; ?>
               <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Nome</label>
-                  <input name="nome" type="text" class="form-control" id="exampleInputEmail1" placeholder="Digite o nome" require>
+                <div class="form-group col-lg-12">
+                  <label for="ipNome">Nome</label>
+                  <input name="nome" type="text" class="form-control" id="ipNome" placeholder="Digite o nome">
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Email</label>
-                    <input name="email" type="email" class="form-control" id="exampleInputPassword1" placeholder="example@example.com" require>
+                <div class="form-group col-lg-6">
+                    <label for="ipUser">Usuario</label>
+                    <input name="usuario" type="text" class="form-control" id="ipUser">
                 </div>
-                <div class="row">    
-                    <div class="form-group col-md-4">
-                    <label for="exampleInputTel">Telefone</label>
-                    <input name="telefone" type="text" class="form-control" id="exampleInputTel" placeholder="(99) 99999-9999">
-                    </div>
-            
-                    <div class="form-group col-md-4">
-                    <label>Turno</label>
-                    <select name="turno" class="form-control" require>
-                        <option value='M'>Manhã</option>
-                        <option value='T'>Tarde</option>
-                        <option value='N'>Noite</option>
-                    </select>
-                    </div>
-                    <div class="form-group col-md-4">
-                    <label for="exampleInputHor">Horario</label>
-                    <input name="horas" type="text" class="form-control" id="exampleInputHor" placeholder="7:00 - 11:00" require>
-                    </div>
+                <div class="form-group col-lg-6">
+                    <label for="ipSenha">Senha</label>
+                    <input name="senha" id="ipSenha" type="password" class="form-control">
                 </div>
               </div>
               <!-- /.box-body -->
-
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <button type="submit" class="btn btn-primary">Alterar</button>
               </div>
             </form>
+            
           </div>
-    
+
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -177,8 +163,8 @@
 
   </div>
   <!-- ./wrapper -->
-
-  <!-- jQuery 3 -->
+ 
+  <!-- jQuery 3 --> 
   <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
   <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -190,6 +176,16 @@
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
+
+  <script>
+      var nome = document.getElementById('edNome').value;
+      var user = document.getElementById('edUsuario').value;
+      var senha = document.getElementById('edSenha').value;
+      document.getElementById('ipNome').value = nome;
+      document.getElementById('ipUser').value = user;
+      document.getElementById('ipSenha').value = senha;
+
+  </script>
 
 </body>
 

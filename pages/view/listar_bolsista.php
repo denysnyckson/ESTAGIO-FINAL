@@ -64,7 +64,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
           <div class="pull-left image">
-            <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+            <img src="../../dist/img/user.png" class="img-circle" alt="User Image">
           </div>
           <div class="pull-left info">
             <p><?php require_once '../../php/control/exib_nome.php'?></p>
@@ -119,7 +119,7 @@
             </ul>
           </li>
           <li>
-            <a href="#">
+            <a href="../../pages/forms/configuracao.php">
               <i class="fa fa-cog"></i> <span>Configuração</span>
             </a>
           </li>

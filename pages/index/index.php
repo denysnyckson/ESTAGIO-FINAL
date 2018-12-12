@@ -101,7 +101,7 @@
             </ul>
           </li>
           <li>
-            <a href="#" data-toggle="tooltip" data-placement="right" title="Configurar o Sistema">
+            <a href="../../pages/forms/configuracao.php" data-toggle="tooltip" data-placement="right" title="Configurar o Sistema">
               <i class="fa fa-cog"></i> <span>Configuração</span>
             </a>
           </li>
